@@ -6,11 +6,11 @@ Ini adalah projek untuk program studi Computer Science, yang digunakan sebagai d
 
 |            Nama             |     NIM    |        Role        |           Social Media           |
 | :-------------------------: | :--------: | :----------------: | :------------------------------: |
-|    Ahmad Nur Hidaya         | 2010130002 |    Scrum Master    | <a href="https://instagram.com/magerun"><img align="left" src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/instagram.svg" alt="Yu Shi | Instagram" width="21px"/></a> |
-|    Andi Muhammad Fikri      | 2010130004 |        UI/UX       | <a href="https://instagram.com/argetlam"><img align="left" src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/instagram.svg" alt="Yu Shi | Instagram" width="21px"/></a> |
-|    Alif Zaky Cakramusi P    | 2010130003 |      Developer     | <a href="https://instagram.com/tosee212"><img align="left" src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/instagram.svg" alt="Yu Shi | Instagram" width="21px"/></a> |
-|    El-Thoriq Is'ad          | 2010130015 |        UI/UX       | <a href="https://instagram.com/elthaariq"><img align="left" src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/instagram.svg" alt="Yu Shi | Instagram" width="21px"/></a> |
-|    Muhammad Haikal Fuady    | 2010130010 |      Developer     | <a href="https://instagram.com/hycall_f24"><img align="left" src="https://raw.githubusercontent.com/yushi1007/yushi1007/main/images/instagram.svg" alt="Yu Shi | Instagram" width="21px"/></a> |
+|    Ahmad Nur Hidaya         | 2010130002 |    Scrum Master    | <a href="https://instagram.com/magerun"><img align="left" src="" width="21px"/></a> |
+|    Andi Muhammad Fikri      | 2010130004 |        UI/UX       | <a href="https://instagram.com/argetlam"><img align="left" src="" width="21px"/></a> |
+|    Alif Zaky Cakramusi P    | 2010130003 |      Developer     | <a href="https://instagram.com/tosee212"><img align="left" src="" width="21px"/></a> |
+|    El-Thoriq Is'ad          | 2010130015 |        UI/UX       | <a href="https://instagram.com/elthaariq"><img align="left" src="" width="21px"/></a> |
+|    Muhammad Haikal Fuady    | 2010130010 |      Developer     | <a href="https://instagram.com/hycall_f24"><img align="left" src="" width="21px"/></a> |
 |    Akbar Riandi             | 1910130000 |        UI/UX       |
 
 This project created using : 
