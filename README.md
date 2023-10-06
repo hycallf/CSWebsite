@@ -8,12 +8,12 @@ Ini adalah projek untuk program studi Computer Science, yang digunakan sebagai d
 
 |            Nama             |     NIM    |        Role        |           Social Media           |
 | :-------------------------: | :--------: | :----------------: | :------------------------------: |
-|    Ahmad Nur Hidaya         | 2010130002 |    Scrum Master    | <a href="https://instagram.com/magerun"><img align="left" src="" width="21px"/></a> |
-|    Andi Muhammad Fikri      | 2010130004 |        UI/UX       | <a href="https://instagram.com/argetlam"><img align="left" src="" width="21px"/></a> |
-|    Alif Zaky Cakramusi P    | 2010130003 |      Developer     | <a href="https://instagram.com/tosee212"><img align="left" src="" width="21px"/></a> |
-|    El-Thoriq Is'ad          | 2010130015 |        UI/UX       | <a href="https://instagram.com/elthaariq"><img align="left" src="" width="21px"/></a> |
-|    Muhammad Haikal Fuady    | 2010130010 |      Developer     | <a href="https://instagram.com/hycall_f24"><img align="left" src="" width="21px"/></a> |
-|    Akbar Riandi             | 1910130000 |        UI/UX       |
+|    Ahmad Nur Hidaya         | 2010130002 |    Scrum Master    | <a href="https://instagram.com/magerun"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
+|    Andi Muhammad Fikri      | 2010130004 |        UI/UX       | <a href="https://instagram.com/argetlam"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
+|    Alif Zaky Cakramusi P    | 2010130003 |      Developer     | <a href="https://instagram.com/tosee212"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
+|    El-Thoriq Is'ad          | 2010130015 |        UI/UX       | <a href="https://instagram.com/elthaariq"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
+|    Muhammad Haikal Fuady    | 2010130010 |      Developer     | <a href="https://instagram.com/hycall_f24"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
+|    Akbar Riandi             | 1910130000 |        UI/UX       | <a href="https://instagram.com/hycall_f24"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
 
 This project created using : 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
