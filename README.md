@@ -1,5 +1,7 @@
 ## Prodi CS Website
 
+![logo app](https://github.com/YayaIniee/CSWebsite/blob/1c7eb3039bced4088d0e98e0f50bc893da944fee/Docs/images/Logo_CS.jpg)
+
 Ini adalah projek untuk program studi Computer Science, yang digunakan sebagai dokumentasi secara online khusus untuk program studi CS, seperti prestasi, publikasi, projek, dan fitur lainnya.
 
 ## Project Team Member
