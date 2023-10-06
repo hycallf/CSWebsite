@@ -2,7 +2,7 @@
 
 ![logo app](https://github.com/YayaIniee/CSWebsite/blob/1c7eb3039bced4088d0e98e0f50bc893da944fee/Docs/images/Logo_CS.jpg)
 
-Ini adalah projek untuk program studi Computer Science, yang digunakan sebagai dokumentasi secara online khusus untuk program studi CS, seperti prestasi, publikasi, projek, dan fitur lainnya.
+This application represents a project within the Computer Science program at ESQ Business School, serving as a specialized online documentation platform tailored for the Computer Science curriculum. Its purpose is to systematically document achievements, publications, projects, and other relevant features specific to the Computer Science program.
 
 ## Project Team Member
 
@@ -15,16 +15,18 @@ Ini adalah projek untuk program studi Computer Science, yang digunakan sebagai d
 |    Muhammad Haikal Fuady    | 2010130010 |      Developer     | <a href="https://instagram.com/hycall_f24"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
 |    Akbar Riandi             | 1910130000 |        UI/UX       | <a href="https://instagram.com/hycall_f24"><img align="center" src="https://github.com/YayaIniee/CSWebsite/blob/e74dae49b64ff8a9ec5647da44d930d37ac84b42/Docs/icons/ig.png" width="21px"/></a> |
 
-This project created using : 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-<p align="center"><a href="https://getbootstrap.com/docs/5.0/" target="_blank"><img src="https://getbootstrap.com/" width="400" alt="Bootstrap 5 Logo"></a></p>
+## This project build with :
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![Symfony](https://img.shields.io/badge/symfony-%23000000.svg?style=for-the-badge&logo=symfony&logoColor=white)
+
+Tools : 
+	![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
+## Prototype
+You can check our project prototype <a href="https://www.figma.com/file/oC2H77lY8W5ORGx0KaHcSn/Untitled?type=design&node-id=1-2&mode=design&t=WcidHxUTDzqzfiW1-0">here</a>
+
+## Documentation
+You can check full documentation <a href="https://www.figma.com/file/oC2H77lY8W5ORGx0KaHcSn/Untitled?type=design&node-id=1-2&mode=design&t=WcidHxUTDzqzfiW1-0">here</a>
 
 ## About Laravel
 
