@@ -23,6 +23,31 @@ This application represents a project within the Computer Science program at ESQ
 
 ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
+## How to use
+Move to work directory then clone
+```bash
+git clone https://github.com/YayaIniee/CSWebsite.git
+```
+Install vendor file, etc.
+```bash
+composer install
+npm install
+```
+Duplicate file .env
+```bash
+cp .env.example .env
+```
+Generate an Application Key
+```bash
+php artisan key:generate
+```
+Configure Your Database: Open the .env file and configure your database settings (e.g., DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD) to match your local database setup.
+
+Migrate the Database: 
+```bash
+php artisan migrate
+```
+
 ## Prototype
 You can check our project prototype <a href="https://www.figma.com/file/oC2H77lY8W5ORGx0KaHcSn/Untitled?type=design&node-id=1-2&mode=design&t=WcidHxUTDzqzfiW1-0">here</a>
 
