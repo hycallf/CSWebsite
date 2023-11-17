@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\mahasiswa;
-use App\Http\Requests\StoremahasiswaRequest;
-use App\Http\Requests\UpdatemahasiswaRequest;
+use App\Models\Mahasiswa;
+use App\Http\Requests\StoreMahasiswaRequest;
+use App\Http\Requests\UpdateMahasiswaRequest;
+use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
@@ -13,7 +14,13 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $mahasiswa = Mahasiswa::all();
+        // $mahasiswa = DB::table('mahasiswas')->get();
+
+        // return dd($mahasiswa);
+        
+        return view('admin.data_mahasiswa', ['data_mahasiswa' => $mahasiswa,
+        ]);
     }
 
     /**
@@ -27,7 +34,7 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoremahasiswaRequest $request)
+    public function store(StoreMahasiswaRequest $request)
     {
         //
     }
@@ -35,15 +42,18 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(mahasiswa $mahasiswa)
+    public function show()
     {
-        //
+        // $mahasiswa = Mahasiswa::all();
+        // return view('admin.data_mahasiswa', compact('mahasiswa'));
+
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(mahasiswa $mahasiswa)
+    public function edit(Mahasiswa $mahasiswa)
     {
         //
     }
@@ -51,7 +61,7 @@ class MahasiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatemahasiswaRequest $request, mahasiswa $mahasiswa)
+    public function update(UpdateMahasiswaRequest $request, Mahasiswa $mahasiswa)
     {
         //
     }
@@ -59,7 +69,7 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(mahasiswa $mahasiswa)
+    public function destroy(Mahasiswa $mahasiswa)
     {
         //
     }

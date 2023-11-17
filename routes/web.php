@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MahasiswaController;
+use App\Models\Mahasiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin/home');
-});
-
-Route::get('/guest', function () {
     return view('guest/home');
 });
+
+Route::get('/admin', function () {
+    return view('admin/home');
+});
+Route::get('/admin/data_mahasiswa', [MahasiswaController::class, 'index']);
+
 
 Route::get('/login', function () {
     return view('auth/login');

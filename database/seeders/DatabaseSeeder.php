@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Status;
+use App\Models\Role;
+use App\Models\Mahasiswa;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +15,42 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        Role::create([
+            'name' => 'Admin',
+        ]);
+        
+        Role::create([
+            'name' => 'Dosen',
+        ]);
+        Role::create([
+            'name' => 'Mahasiswa',
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Status::create([
+            'name' => 'Aktif',
+        ]);
+        Status::create([
+            'name' => 'Gap Year',
+        ]);
+        Status::create([
+            'name' => 'Alumni',
+        ]);
+        Status::create([
+            'name' => 'Drop out',
+        ]);
+
+        Mahasiswa::create([
+            'nim' => '1710130001',
+            'name' => 'Abdul Fattah Kusnandar',
+            'angkatan' => '2017',
+            'statuses'=> '3'
+        ]);
+
+        Mahasiswa::create([
+            'nim' => '2010130010',
+            'name' => 'Muhammad Haikal Fuady',
+            'angkatan' => '2020',
+            'statuses'=> '1'
+        ]);
     }
 }
