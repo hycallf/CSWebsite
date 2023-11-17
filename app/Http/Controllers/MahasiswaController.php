@@ -19,7 +19,9 @@ class MahasiswaController extends Controller
 
         // return dd($mahasiswa);
         
-        return view('admin.data_mahasiswa', ['data_mahasiswa' => $mahasiswa,
+        return view('admin.data_mahasiswa', [
+            'data_mahasiswa' => $mahasiswa,
+            'title' => 'Data Mahasiswa'
         ]);
     }
 
