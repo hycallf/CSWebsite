@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Mahasiswa extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
-    // protected $with = ['statuses'];
+    protected $table = 'mahasiswa';
+    protected $primaryKey = 'nim';
+    protected $guarded = ['mahasiswa_id'];
 
     public function Status()
     {
         
-        return $this->belongsTo(Status::class, 'name');
+        return $this->belongsTo(Status::class, 'status_id');
     }
 }
 

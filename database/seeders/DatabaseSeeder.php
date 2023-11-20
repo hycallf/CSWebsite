@@ -43,14 +43,14 @@ class DatabaseSeeder extends Seeder
             'nim' => '1710130001',
             'name' => 'Abdul Fattah Kusnandar',
             'angkatan' => '2017',
-            'statuses'=> '3'
+            'status_id'=> '3'
         ]);
 
         Mahasiswa::create([
             'nim' => '2010130010',
             'name' => 'Muhammad Haikal Fuady',
             'angkatan' => '2020',
-            'statuses'=> '1'
+            'status_id'=> '1'
         ]);
     }
 }

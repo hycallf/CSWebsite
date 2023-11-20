@@ -9,9 +9,9 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ $sum_mahasiswa }}</h3>
 
-                            <p>New Orders</p>
+                            <p>Jumlah Mahasiwa</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -24,9 +24,9 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>15</h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Jumlah dosen</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -149,8 +149,7 @@
                                         <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                                     </div>
                                     <!-- /.direct-chat-infos -->
-                                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                        alt="message user image">
+                                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
                                     <!-- /.direct-chat-img -->
                                     <div class="direct-chat-text">
                                         You better believe it!

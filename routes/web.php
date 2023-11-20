@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MahasiswaController;
-use App\Models\Mahasiswa;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('guest/home');
 });
 
-Route::get('/admin', function () {
-    return view('admin/home');
-});
+Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/data_mahasiswa', [MahasiswaController::class, 'index']);
 
 

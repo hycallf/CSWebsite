@@ -30,7 +30,7 @@
                                         <td>{{ $item->nim }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->angkatan }}</td>
-                                        <td>{{ $item->statuses }}</td>
+                                        <td>{{ $item->status_id }}</td>
                                         {{-- <td>{{ $item->alamat }}</td> --}}
                                         <td>
                                             <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>

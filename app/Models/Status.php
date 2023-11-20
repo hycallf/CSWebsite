@@ -9,9 +9,9 @@ class Status extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = ['status_id'];
 
-    public function mahasiswas()
+    public function Mahasiswa()
     {
         return $this->hasMany(Mahasiswa::class);
     }

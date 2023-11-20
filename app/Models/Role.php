@@ -9,7 +9,7 @@ class Role extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = ['role_id'];
 
     // public function posts()
     // {
