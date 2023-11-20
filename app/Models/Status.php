@@ -9,7 +9,8 @@ class Status extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['status_id'];
+    protected $table = 'status_mahasiswa';
+    protected $guarded = ['id_status'];
 
     public function Mahasiswa()
     {

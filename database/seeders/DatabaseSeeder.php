@@ -16,41 +16,65 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Role::create([
-            'name' => 'Admin',
+            'role' => 'Admin',
         ]);
         
         Role::create([
-            'name' => 'Dosen',
+            'role' => 'Dosen',
         ]);
         Role::create([
-            'name' => 'Mahasiswa',
+            'role' => 'Mahasiswa',
         ]);
 
         Status::create([
-            'name' => 'Aktif',
+            'nama_status' => 'Aktif',
         ]);
         Status::create([
-            'name' => 'Gap Year',
+            'nama_status' => 'Gap Year',
         ]);
         Status::create([
-            'name' => 'Alumni',
+            'nama_status' => 'Alumni',
         ]);
         Status::create([
-            'name' => 'Drop out',
+            'nama_status' => 'Drop out',
         ]);
 
         Mahasiswa::create([
             'nim' => '1710130001',
-            'name' => 'Abdul Fattah Kusnandar',
+            'nama' => 'Abdul Fattah Kusnandar',
             'angkatan' => '2017',
-            'status_id'=> '3'
+            'status'=> '3'
+        ]);
+        Mahasiswa::create([
+            'nim' => '2010130001',
+            'nama' => 'Afiffah Khairiyyah Rusli',
+            'angkatan' => '2020',
+            'status'=> '1'
+        ]);
+        Mahasiswa::create([
+            'nim' => '2010130002',
+            'nama' => 'Ahmad Nur Hidaya',
+            'angkatan' => '2020',
+            'status'=> '1'
+        ]);
+        Mahasiswa::create([
+            'nim' => '2010130003',
+            'nama' => 'Alif Zaky ChakraUnlimited',
+            'angkatan' => '2020',
+            'status'=> '1'
+        ]);
+        Mahasiswa::create([
+            'nim' => '2010130004',
+            'nama' => 'Andi Muhammad Fikri',
+            'angkatan' => '2020',
+            'status'=> '1'
         ]);
 
         Mahasiswa::create([
             'nim' => '2010130010',
-            'name' => 'Muhammad Haikal Fuady',
+            'nama' => 'Muhammad Haikal Fuady',
             'angkatan' => '2020',
-            'status_id'=> '1'
+            'status'=> '1'
         ]);
     }
 }

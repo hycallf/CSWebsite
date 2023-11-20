@@ -8,22 +8,25 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id();
-            $table->string('name');
+        Schema::create('tipe_mbkm', function (Blueprint $table) {
+            $table->integer('id_tipembkm', true);
+            $table->string('nama_tipembkm', 30);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('tipe_mbkm');
     }
 };

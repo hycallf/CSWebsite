@@ -28,9 +28,9 @@
                                 @foreach ($data_mahasiswa as $item)
                                     <tr>
                                         <td>{{ $item->nim }}</td>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->nama }}</td>
                                         <td>{{ $item->angkatan }}</td>
-                                        <td>{{ $item->status_id }}</td>
+                                        <td>{{ $item->status }}</td>
                                         {{-- <td>{{ $item->alamat }}</td> --}}
                                         <td>
                                             <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>

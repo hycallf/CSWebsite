@@ -8,22 +8,25 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id();
-            $table->string('name');
+        Schema::create('status_mahasiswa', function (Blueprint $table) {
+            $table->integer('id_status', true);
+            $table->string('nama_status', 50);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('status_mahasiswa');
     }
 };
