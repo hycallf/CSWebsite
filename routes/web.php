@@ -25,11 +25,16 @@ Route::get('/', function () {
 // });
 
 Route::get('/dashboard', [AdminController::class, 'index']);
-Route::get('/data_mahasiswa', [MahasiswaController::class, 'index']);
+
+// CRUD MAHASISWA
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::post('/mahasiswa/update/{$nim}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+Route::post('/mahasiswa/destroy/{$nim}', [MahasiswaController::class, 'destroy']);
 
 // auth
-Route::get('/login', [LoginController::class, 'showLoginForm']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::get('/login', [LoginController::class, 'showLoginForm']);
+// Route::post('/login', [LoginController::class, 'authenticate']);
 // Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 // Route::post('/login', [AuthController::class, 'authenticate']);
 // Route::post('/logout', [AuthController::class, 'logout']);

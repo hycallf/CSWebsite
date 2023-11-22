@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Mahasiswa extends Model
 {
     use HasFactory;
     protected $table = 'mahasiswa';
-    protected $primaryKey = 'nim';
-    // protected $guarded = ['mahasiswa_id'];
+    protected $guarded = ['id'];
 
-    public function Status()
-    {
-        
-        return $this->belongsTo(Status::class);
-    }
+    public static $statuses = [
+        'aktif' => 'Aktif',
+        'gapyear' => 'Gap Year',
+        'alumni' => 'Alumni',
+        'dropout' => 'Drop Out',
+        // Add other statuses as needed
+    ];
 }
-

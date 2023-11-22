@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
-use App\Models\Status;
 use App\Http\Requests\StoreMahasiswaRequest;
 use App\Http\Requests\UpdateMahasiswaRequest;
 use Illuminate\Support\Facades\DB;
@@ -37,9 +36,26 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMahasiswaRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nim' => 'required',
+            'nama' => 'required',
+            'angkatan' => 'required',
+            'status' => 'required',
+            // Add more fields as needed
+        ]);
+
+        Mahasiswa::create($validatedData);
+        // Mahasiswa::create([
+        //     'nim' => $request->nim,
+        //     'nama' => $request->nama,
+        //     'angkatan' => $request->angkatan,
+        //     'status'=> $request->status
+        // ]);
+
+        return redirect('/mahasiswa').with('success', 'Berhasil menambah data mahasiswa');
+
     }
 
     /**
