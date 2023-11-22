@@ -1,607 +1,568 @@
 @extends('layout.admin')
 
 @section('content')
-    <section class="content">
-        <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
+    <div class="content-body">
+
+        <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>{{ $sum_mahasiswa }}</h3>
-
-                            <p>Jumlah Mahasiwa</p>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card gradient-1">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">Products Sold</h3>
+                            <div class="d-inline-block">
+                                <h2 class="text-white">4565</h2>
+                                <p class="text-white mb-0">Jan - March 2019</p>
+                            </div>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3>15</h3>
-
-                            <p>Jumlah dosen</p>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card gradient-2">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">Net Profit</h3>
+                            <div class="d-inline-block">
+                                <h2 class="text-white">$ 8541</h2>
+                                <p class="text-white mb-0">Jan - March 2019</p>
+                            </div>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>User Registrations</p>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card gradient-3">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">New Customers</h3>
+                            <div class="d-inline-block">
+                                <h2 class="text-white">4565</h2>
+                                <p class="text-white mb-0">Jan - March 2019</p>
+                            </div>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card gradient-4">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">Customer Satisfaction</h3>
+                            <div class="d-inline-block">
+                                <h2 class="text-white">99%</h2>
+                                <p class="text-white mb-0">Jan - March 2019</p>
+                            </div>
+                            <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
             </div>
-            <!-- /.row -->
-            <!-- Main row -->
+
             <div class="row">
-                <!-- Left col -->
-                <section class="col-lg-7 connectedSortable">
-                    <!-- Custom tabs (Charts with tabs)-->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="fas fa-chart-pie mr-1"></i>
-                                Sales
-                            </h3>
-                            <div class="card-tools">
-                                <ul class="nav nav-pills ml-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="tab-content p-0">
-                                <!-- Morris chart - Sales -->
-                                <div class="chart tab-pane active" id="revenue-chart"
-                                    style="position: relative; height: 300px;">
-                                    <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body pb-0 d-flex justify-content-between">
+                                    <div>
+                                        <h4 class="mb-1">Product Sales</h4>
+                                        <p>Total Earnings of the Month</p>
+                                        <h3 class="m-0">$ 12,555</h3>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li class="d-inline-block mr-3"><a class="text-dark" href="#">Day</a></li>
+                                            <li class="d-inline-block mr-3"><a class="text-dark" href="#">Week</a>
+                                            </li>
+                                            <li class="d-inline-block"><a class="text-dark" href="#">Month</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                <div class="chart-wrapper">
+                                    <canvas id="chart_widget_2"></canvas>
                                 </div>
-                            </div>
-                        </div><!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-
-                    <!-- DIRECT CHAT -->
-                    <div class="card direct-chat direct-chat-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Direct Chat</h3>
-
-                            <div class="card-tools">
-                                <span title="3 New Messages" class="badge badge-primary">3</span>
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
-                                    <i class="fas fa-comments"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <!-- Conversations are loaded here -->
-                            <div class="direct-chat-messages">
-                                <!-- Message. Default to the left -->
-                                <div class="direct-chat-msg">
-                                    <div class="direct-chat-infos clearfix">
-                                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                                    </div>
-                                    <!-- /.direct-chat-infos -->
-                                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                                    <!-- /.direct-chat-img -->
-                                    <div class="direct-chat-text">
-                                        Is this template really for free? That's unbelievable!
-                                    </div>
-                                    <!-- /.direct-chat-text -->
-                                </div>
-                                <!-- /.direct-chat-msg -->
-
-                                <!-- Message to the right -->
-                                <div class="direct-chat-msg right">
-                                    <div class="direct-chat-infos clearfix">
-                                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                                    </div>
-                                    <!-- /.direct-chat-infos -->
-                                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                                    <!-- /.direct-chat-img -->
-                                    <div class="direct-chat-text">
-                                        You better believe it!
-                                    </div>
-                                    <!-- /.direct-chat-text -->
-                                </div>
-                                <!-- /.direct-chat-msg -->
-
-                                <!-- Message. Default to the left -->
-                                <div class="direct-chat-msg">
-                                    <div class="direct-chat-infos clearfix">
-                                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                        <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                                    </div>
-                                    <!-- /.direct-chat-infos -->
-                                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                        alt="message user image">
-                                    <!-- /.direct-chat-img -->
-                                    <div class="direct-chat-text">
-                                        Working with AdminLTE on a great new app! Wanna join?
-                                    </div>
-                                    <!-- /.direct-chat-text -->
-                                </div>
-                                <!-- /.direct-chat-msg -->
-
-                                <!-- Message to the right -->
-                                <div class="direct-chat-msg right">
-                                    <div class="direct-chat-infos clearfix">
-                                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                        <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                                    </div>
-                                    <!-- /.direct-chat-infos -->
-                                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                        alt="message user image">
-                                    <!-- /.direct-chat-img -->
-                                    <div class="direct-chat-text">
-                                        I would love to.
-                                    </div>
-                                    <!-- /.direct-chat-text -->
-                                </div>
-                                <!-- /.direct-chat-msg -->
-
-                            </div>
-                            <!--/.direct-chat-messages-->
-
-                            <!-- Contacts are loaded here -->
-                            <div class="direct-chat-contacts">
-                                <ul class="contacts-list">
-                                    <li>
-                                        <a href="#">
-                                            <img class="contacts-list-img" src="dist/img/user1-128x128.jpg"
-                                                alt="User Avatar">
-
-                                            <div class="contacts-list-info">
-                                                <span class="contacts-list-name">
-                                                    Count Dracula
-                                                    <small class="contacts-list-date float-right">2/28/2015</small>
-                                                </span>
-                                                <span class="contacts-list-msg">How have you been? I
-                                                    was...</span>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="w-100 mr-2">
+                                            <h6>Pixel 2</h6>
+                                            <div class="progress" style="height: 6px">
+                                                <div class="progress-bar bg-danger" style="width: 40%"></div>
                                             </div>
-                                            <!-- /.contacts-list-info -->
-                                        </a>
-                                    </li>
-                                    <!-- End Contact Item -->
-                                    <li>
-                                        <a href="#">
-                                            <img class="contacts-list-img" src="dist/img/user7-128x128.jpg"
-                                                alt="User Avatar">
-
-                                            <div class="contacts-list-info">
-                                                <span class="contacts-list-name">
-                                                    Sarah Doe
-                                                    <small class="contacts-list-date float-right">2/23/2015</small>
-                                                </span>
-                                                <span class="contacts-list-msg">I will be waiting for...</span>
+                                        </div>
+                                        <div class="ml-2 w-100">
+                                            <h6>iPhone X</h6>
+                                            <div class="progress" style="height: 6px">
+                                                <div class="progress-bar bg-primary" style="width: 80%"></div>
                                             </div>
-                                            <!-- /.contacts-list-info -->
-                                        </a>
-                                    </li>
-                                    <!-- End Contact Item -->
-                                    <li>
-                                        <a href="#">
-                                            <img class="contacts-list-img" src="dist/img/user3-128x128.jpg"
-                                                alt="User Avatar">
-
-                                            <div class="contacts-list-info">
-                                                <span class="contacts-list-name">
-                                                    Nadia Jolie
-                                                    <small class="contacts-list-date float-right">2/20/2015</small>
-                                                </span>
-                                                <span class="contacts-list-msg">I'll call you back at...</span>
-                                            </div>
-                                            <!-- /.contacts-list-info -->
-                                        </a>
-                                    </li>
-                                    <!-- End Contact Item -->
-                                    <li>
-                                        <a href="#">
-                                            <img class="contacts-list-img" src="dist/img/user5-128x128.jpg"
-                                                alt="User Avatar">
-
-                                            <div class="contacts-list-info">
-                                                <span class="contacts-list-name">
-                                                    Nora S. Vans
-                                                    <small class="contacts-list-date float-right">2/10/2015</small>
-                                                </span>
-                                                <span class="contacts-list-msg">Where is your new...</span>
-                                            </div>
-                                            <!-- /.contacts-list-info -->
-                                        </a>
-                                    </li>
-                                    <!-- End Contact Item -->
-                                    <li>
-                                        <a href="#">
-                                            <img class="contacts-list-img" src="dist/img/user6-128x128.jpg"
-                                                alt="User Avatar">
-
-                                            <div class="contacts-list-info">
-                                                <span class="contacts-list-name">
-                                                    John K.
-                                                    <small class="contacts-list-date float-right">1/27/2015</small>
-                                                </span>
-                                                <span class="contacts-list-msg">Can I take a look at...</span>
-                                            </div>
-                                            <!-- /.contacts-list-info -->
-                                        </a>
-                                    </li>
-                                    <!-- End Contact Item -->
-                                    <li>
-                                        <a href="#">
-                                            <img class="contacts-list-img" src="dist/img/user8-128x128.jpg"
-                                                alt="User Avatar">
-
-                                            <div class="contacts-list-info">
-                                                <span class="contacts-list-name">
-                                                    Kenneth M.
-                                                    <small class="contacts-list-date float-right">1/4/2015</small>
-                                                </span>
-                                                <span class="contacts-list-msg">Never mind I found...</span>
-                                            </div>
-                                            <!-- /.contacts-list-info -->
-                                        </a>
-                                    </li>
-                                    <!-- End Contact Item -->
-                                </ul>
-                                <!-- /.contacts-list -->
-                            </div>
-                            <!-- /.direct-chat-pane -->
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
-                            <form action="#" method="post">
-                                <div class="input-group">
-                                    <input type="text" name="message" placeholder="Type Message ..."
-                                        class="form-control">
-                                    <span class="input-group-append">
-                                        <button type="button" class="btn btn-primary">Send</button>
-                                    </span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                        <!-- /.card-footer-->
-                    </div>
-                    <!--/.direct-chat -->
-
-                    <!-- TO DO List -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="ion ion-clipboard mr-1"></i>
-                                To Do List
-                            </h3>
-
-                            <div class="card-tools">
-                                <ul class="pagination pagination-sm">
-                                    <li class="page-item"><a href="#" class="page-link">&laquo;</a>
-                                    </li>
-                                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                    <li class="page-item"><a href="#" class="page-link">&raquo;</a>
-                                    </li>
-                                </ul>
                             </div>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <ul class="todo-list" data-widget="todo-list">
-                                <li>
-                                    <!-- drag handle -->
-                                    <span class="handle">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </span>
-                                    <!-- checkbox -->
-                                    <div class="icheck-primary d-inline ml-2">
-                                        <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                                        <label for="todoCheck1"></label>
-                                    </div>
-                                    <!-- todo text -->
-                                    <span class="text">Design a nice theme</span>
-                                    <!-- Emphasis label -->
-                                    <small class="badge badge-danger"><i class="far fa-clock"></i> 2
-                                        mins</small>
-                                    <!-- General tools such as edit or delete-->
-                                    <div class="tools">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </span>
-                                    <div class="icheck-primary d-inline ml-2">
-                                        <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
-                                        <label for="todoCheck2"></label>
-                                    </div>
-                                    <span class="text">Make the theme responsive</span>
-                                    <small class="badge badge-info"><i class="far fa-clock"></i> 4
-                                        hours</small>
-                                    <div class="tools">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </span>
-                                    <div class="icheck-primary d-inline ml-2">
-                                        <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                                        <label for="todoCheck3"></label>
-                                    </div>
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="badge badge-warning"><i class="far fa-clock"></i> 1
-                                        day</small>
-                                    <div class="tools">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </span>
-                                    <div class="icheck-primary d-inline ml-2">
-                                        <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                                        <label for="todoCheck4"></label>
-                                    </div>
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="badge badge-success"><i class="far fa-clock"></i> 3
-                                        days</small>
-                                    <div class="tools">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </span>
-                                    <div class="icheck-primary d-inline ml-2">
-                                        <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                                        <label for="todoCheck5"></label>
-                                    </div>
-                                    <span class="text">Check your messages and notifications</span>
-                                    <small class="badge badge-primary"><i class="far fa-clock"></i> 1
-                                        week</small>
-                                    <div class="tools">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </span>
-                                    <div class="icheck-primary d-inline ml-2">
-                                        <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                                        <label for="todoCheck6"></label>
-                                    </div>
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="badge badge-secondary"><i class="far fa-clock"></i> 1
-                                        month</small>
-                                    <div class="tools">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-o"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer clearfix">
-                            <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add
-                                item</button>
                         </div>
                     </div>
-                    <!-- /.card -->
-                </section>
-                <!-- /.Left col -->
-                <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                <section class="col-lg-5 connectedSortable">
-
-                    <!-- Map card -->
-                    <div class="card bg-gradient-primary">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-map-marker-alt mr-1"></i>
-                                Visitors
-                            </h3>
-                            <!-- card tools -->
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                                    <i class="far fa-calendar-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse"
-                                    title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <div class="card-body">
-                            <div id="world-map" style="height: 250px; width: 100%;"></div>
-                        </div>
-                        <!-- /.card-body-->
-                        <div class="card-footer bg-transparent">
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-1"></div>
-                                    <div class="text-white">Visitors</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-2"></div>
-                                    <div class="text-white">Online</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <div id="sparkline-3"></div>
-                                    <div class="text-white">Sales</div>
-                                </div>
-                                <!-- ./col -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.card -->
-
-                    <!-- solid sales graph -->
-                    <div class="card bg-gradient-info">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">
-                                <i class="fas fa-th mr-1"></i>
-                                Sales Graph
-                            </h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <canvas class="chart" id="line-chart"
-                                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer bg-transparent">
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <input type="text" class="knob" data-readonly="true" value="20"
-                                        data-width="60" data-height="60" data-fgColor="#39CCCC">
-
-                                    <div class="text-white">Mail-Orders</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <input type="text" class="knob" data-readonly="true" value="50"
-                                        data-width="60" data-height="60" data-fgColor="#39CCCC">
-
-                                    <div class="text-white">Online</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-4 text-center">
-                                    <input type="text" class="knob" data-readonly="true" value="30"
-                                        data-width="60" data-height="60" data-fgColor="#39CCCC">
-
-                                    <div class="text-white">In-Store</div>
-                                </div>
-                                <!-- ./col -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.card-footer -->
-                    </div>
-                    <!-- /.card -->
-
-                    <!-- Calendar -->
-                    <div class="card bg-gradient-success">
-                        <div class="card-header border-0">
-
-                            <h3 class="card-title">
-                                <i class="far fa-calendar-alt"></i>
-                                Calendar
-                            </h3>
-                            <!-- tools card -->
-                            <div class="card-tools">
-                                <!-- button with a dropdown -->
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle"
-                                        data-toggle="dropdown" data-offset="-52">
-                                        <i class="fas fa-bars"></i>
-                                    </button>
-                                    <div class="dropdown-menu" role="menu">
-                                        <a href="#" class="dropdown-item">Add new event</a>
-                                        <a href="#" class="dropdown-item">Clear events</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="#" class="dropdown-item">View calendar</a>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                            <!-- /. tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body pt-0">
-                            <!--The calendar -->
-                            <div id="calendar" style="width: 100%"></div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </section>
-                <!-- right col -->
+                </div>
             </div>
-            <!-- /.row (main row) -->
-        </div><!-- /.container-fluid -->
-    </section>
+
+
+
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Order Summary</h4>
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-widget">
+                        <div class="card-body">
+                            <h5 class="text-muted">Order Overview </h5>
+                            <h2 class="mt-4">5680</h2>
+                            <span>Total Revenue</span>
+                            <div class="mt-4">
+                                <h4>30</h4>
+                                <h6>Online Order <span class="pull-right">30%</span></h6>
+                                <div class="progress mb-3" style="height: 7px">
+                                    <div class="progress-bar bg-primary" style="width: 30%;" role="progressbar"><span
+                                            class="sr-only">30% Order</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h4>50</h4>
+                                <h6 class="m-t-10 text-muted">Offline Order <span class="pull-right">50%</span></h6>
+                                <div class="progress mb-3" style="height: 7px">
+                                    <div class="progress-bar bg-success" style="width: 50%;" role="progressbar"><span
+                                            class="sr-only">50% Order</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h4>20</h4>
+                                <h6 class="m-t-10 text-muted">Cash On Develery <span class="pull-right">20%</span></h6>
+                                <div class="progress mb-3" style="height: 7px">
+                                    <div class="progress-bar bg-warning" style="width: 20%;" role="progressbar"><span
+                                            class="sr-only">20% Order</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-0">
+                            <h4 class="card-title px-4 mb-3">Todo</h4>
+                            <div class="todo-list">
+                                <div class="tdl-holder">
+                                    <div class="tdl-content">
+                                        <ul id="todo_list">
+                                            <li><label><input type="checkbox"><i></i><span>Get up</span><a href='#'
+                                                        class="ti-trash"></a></label></li>
+                                            <li><label><input type="checkbox" checked><i></i><span>Stand up</span><a
+                                                        href='#' class="ti-trash"></a></label></li>
+                                            <li><label><input type="checkbox"><i></i><span>Don't give up the
+                                                        fight.</span><a href='#' class="ti-trash"></a></label></li>
+                                            <li><label><input type="checkbox" checked><i></i><span>Do something
+                                                        else</span><a href='#' class="ti-trash"></a></label></li>
+                                        </ul>
+                                    </div>
+                                    <div class="px-4">
+                                        <input type="text" class="tdl-new form-control"
+                                            placeholder="Write new item and hit 'Enter'...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="./images/users/8.jpg" class="rounded-circle" alt="">
+                                <h5 class="mt-3 mb-1">Ana Liem</h5>
+                                <p class="m-0">Senior Manager</p>
+                                <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="./images/users/5.jpg" class="rounded-circle" alt="">
+                                <h5 class="mt-3 mb-1">John Abraham</h5>
+                                <p class="m-0">Store Manager</p>
+                                <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="./images/users/7.jpg" class="rounded-circle" alt="">
+                                <h5 class="mt-3 mb-1">John Doe</h5>
+                                <p class="m-0">Sales Man</p>
+                                <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="./images/users/1.jpg" class="rounded-circle" alt="">
+                                <h5 class="mt-3 mb-1">Mehedi Titas</h5>
+                                <p class="m-0">Online Marketer</p>
+                                <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="active-member">
+                                <div class="table-responsive">
+                                    <table class="table table-xs mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Customers</th>
+                                                <th>Product</th>
+                                                <th>Country</th>
+                                                <th>Status</th>
+                                                <th>Payment Method</th>
+                                                <th>Activity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><img src="./images/avatar/1.jpg" class=" rounded-circle mr-3"
+                                                        alt="">Sarah Smith</td>
+                                                <td>iPhone X</td>
+                                                <td>
+                                                    <span>United States</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                                <td>
+                                                    <span>Last Login</span>
+                                                    <span class="m-0 pl-3">10 sec ago</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="./images/avatar/2.jpg" class=" rounded-circle mr-3"
+                                                        alt="">Walter R.</td>
+                                                <td>Pixel 2</td>
+                                                <td><span>Canada</span></td>
+                                                <td>
+                                                    <div>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                                <td>
+                                                    <span>Last Login</span>
+                                                    <span class="m-0 pl-3">50 sec ago</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="./images/avatar/3.jpg" class=" rounded-circle mr-3"
+                                                        alt="">Andrew D.</td>
+                                                <td>OnePlus</td>
+                                                <td><span>Germany</span></td>
+                                                <td>
+                                                    <div>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
+                                                <td>
+                                                    <span>Last Login</span>
+                                                    <span class="m-0 pl-3">10 sec ago</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="./images/avatar/6.jpg" class=" rounded-circle mr-3"
+                                                        alt=""> Megan S.</td>
+                                                <td>Galaxy</td>
+                                                <td><span>Japan</span></td>
+                                                <td>
+                                                    <div>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                                <td>
+                                                    <span>Last Login</span>
+                                                    <span class="m-0 pl-3">10 sec ago</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="./images/avatar/4.jpg" class=" rounded-circle mr-3"
+                                                        alt=""> Doris R.</td>
+                                                <td>Moto Z2</td>
+                                                <td><span>England</span></td>
+                                                <td>
+                                                    <div>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-success" style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
+                                                <td>
+                                                    <span>Last Login</span>
+                                                    <span class="m-0 pl-3">10 sec ago</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="./images/avatar/5.jpg" class=" rounded-circle mr-3"
+                                                        alt="">Elizabeth W.</td>
+                                                <td>Notebook Asus</td>
+                                                <td><span>China</span></td>
+                                                <td>
+                                                    <div>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
+                                                <td>
+                                                    <span>Last Login</span>
+                                                    <span class="m-0 pl-3">10 sec ago</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6">
+
+                    <div class="card">
+                        <div class="chart-wrapper mb-4">
+                            <div class="px-4 pt-4 d-flex justify-content-between">
+                                <div>
+                                    <h4>Sales Activities</h4>
+                                    <p>Last 6 Month</p>
+                                </div>
+                                <div>
+                                    <span><i class="fa fa-caret-up text-success"></i></span>
+                                    <h4 class="d-inline-block text-success">720</h4>
+                                    <p class=" text-danger">+120.5(5.0%)</p>
+                                </div>
+                            </div>
+                            <div>
+                                <canvas id="chart_widget_3"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body border-top pt-4">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul>
+                                        <li>5% Negative Feedback</li>
+                                        <li>95% Positive Feedback</li>
+                                    </ul>
+                                    <div>
+                                        <h5>Customer Feedback</h5>
+                                        <h3>385749</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="chart_widget_3_1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-6 col-xxl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Activity</h4>
+                            <div id="activity">
+                                <div class="media border-bottom-1 pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/1.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>Received New Order</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                                <div class="media border-bottom-1 pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>iPhone develered</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                                <div class="media border-bottom-1 pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>3 Order Pending</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                                <div class="media border-bottom-1 pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>Join new Manager</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                                <div class="media border-bottom-1 pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>Branch open 5 min Late</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                                <div class="media border-bottom-1 pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>New support ticket received</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                                <div class="media pt-3 pb-3">
+                                    <img width="35" src="./images/avatar/3.jpg" class="mr-3 rounded-circle">
+                                    <div class="media-body">
+                                        <h5>Facebook Post 30 Comments</h5>
+                                        <p class="mb-0">I shared this on my fb wall a few months back,</p>
+                                    </div><span class="text-muted ">April 24, 2018</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 col-sm-12 col-xxl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-0">Store Location</h4>
+                            <div id="world-map" style="height: 470px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="social-graph-wrapper widget-facebook">
+                            <span class="s-icon"><i class="fa fa-facebook"></i></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 border-right">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">89k</h4>
+                                    <p class="m-0">Friends</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">119k</h4>
+                                    <p class="m-0">Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="social-graph-wrapper widget-linkedin">
+                            <span class="s-icon"><i class="fa fa-linkedin"></i></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 border-right">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">89k</h4>
+                                    <p class="m-0">Friends</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">119k</h4>
+                                    <p class="m-0">Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="social-graph-wrapper widget-googleplus">
+                            <span class="s-icon"><i class="fa fa-google-plus"></i></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 border-right">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">89k</h4>
+                                    <p class="m-0">Friends</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">119k</h4>
+                                    <p class="m-0">Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="social-graph-wrapper widget-twitter">
+                            <span class="s-icon"><i class="fa fa-twitter"></i></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 border-right">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">89k</h4>
+                                    <p class="m-0">Friends</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="pt-3 pb-3 pl-0 pr-0 text-center">
+                                    <h4 class="m-1">119k</h4>
+                                    <p class="m-0">Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #/ container -->
+    </div>
 @endsection

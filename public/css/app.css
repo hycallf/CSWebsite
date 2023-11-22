@@ -6,11 +6,9 @@ body {
     flex-direction: column; */
     min-height: 100vh;
     margin: 0;
+    /* padding-top: 100px; */
 }
 
-/* .container {
-    flex: 1;
-} */
 
 .footer {
     background-color: #f8f9fa;
@@ -19,12 +17,7 @@ body {
     /* position: sticky; */
     bottom: 0;
 }
-.sticky-top {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+
 .navbar-nav .nav-item.active {
     background-color: #007bff; /* Change to your preferred color */
     
@@ -32,6 +25,11 @@ body {
 
 .navbar-nav .nav-item.active .nav-link {
     color: #fff; /* Change to your preferred text color */
+    border-bottom: 2px solid #007BFF;
+}
+
+.navbar-nav {
+    background-color: #fff;
 }
 
 .navbar-nav .nav-link {

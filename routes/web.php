@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,20 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('guest/home');
+    return view('/login');
 });
+// Route::get('/home', function () {
+//     return view('/home');
+// });
 
-Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/admin/data_mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'index']);
+Route::get('/data_mahasiswa', [MahasiswaController::class, 'index']);
 
+// auth
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [AuthController::class, 'authenticate']);
+// Route::post('/logout', [AuthController::class, 'logout']);
+// Route::post('/register', [AuthController::class, 'store']);
 
-Route::get('/login', function () {
-    return view('auth/login');
-});

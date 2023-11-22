@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Mahasiswa extends Model
 {
@@ -15,7 +16,7 @@ class Mahasiswa extends Model
     public function Status()
     {
         
-        return $this->belongsTo(Status::class, 'status');
+        return $this->belongsTo(Status::class);
     }
 }
 

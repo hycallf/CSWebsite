@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Status;
 use App\Models\Role;
 use App\Models\Mahasiswa;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
         Role::create([
             'role' => 'Dosen',
         ]);
+
         Role::create([
             'role' => 'Mahasiswa',
         ]);
@@ -37,6 +39,22 @@ class DatabaseSeeder extends Seeder
         ]);
         Status::create([
             'nama_status' => 'Drop out',
+        ]);
+
+        User::create([
+            'username'=> '2010130010',
+            'name' => 'Muhammad Haikal Fuady',
+            'id_role' => 1,
+            'email' => 'ricardohaikal2001@gmail.com',
+            'password' => 'admin123',
+        ]);
+
+        User::create([
+            'username'=> '2010130001',
+            'name' => 'Afiffah Khairiyyah Rusli',
+            'id_role' => 3,
+            'email' => 'affiffahiyah@gmail.com',
+            'password' => 'asdasdasd',
         ]);
 
         Mahasiswa::create([
