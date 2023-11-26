@@ -23,40 +23,29 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>Nim</th>
+                                        <th>Nidp</th>
                                         <th>Nama</th>
-                                        <th>Angkatan</th>
-                                        <th>Status Mahasiswa</th>
+                                        <th>No Telepon</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_mahasiswa as $item)
+                                    @foreach ($data_dosen as $item)
                                         <tr>
-                                            <td>{{ $item->nim }}</td>
+                                            <td>{{ $item->nidp }}</td>
                                             <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->angkatan }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->notelp }}</td>
                                             {{-- <td>{{ $item->alamat }}</td> --}}
                                             <td>
-                                                <a href="#modalEdit{{ $item->nim }}" class="btn btn-warning"
+                                                <a href="#modalEdit{{ $item->nidp }}" class="btn btn-warning"
                                                     data-toggle="modal"><i class="fa fa-edit"></i></a>
-                                                <a href="#modalHapus{{ $item->nim }}" class="btn btn-danger"
+                                                <a href="#modalHapus{{ $item->nidp }}" class="btn btn-danger"
                                                     data-toggle="modal"><i class="fa fa-trash"></i></a>
                                             </td>
                                             <!-- Add other table cells as needed -->
                                         </tr>
                                     @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Nim</th>
-                                        <th>Nama</th>
-                                        <th>Angkatan</th>
-                                        <th>Status Mahasiswa</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -71,48 +60,30 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah data mahasiswa</h5>
+                    <h5 class="modal-title">Tambah data dosen</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('mahasiswa.store') }}">
+                <form method="POST" action="/dosen/store">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>NIM</label>
-                            <input type="text" class="form-control" name="nim" placeholder="NIM">
+                            <label>NIDP</label>
+                            <input type="text" class="form-control" name="nidp" placeholder="NIDP">
                         </div>
                         <div class="form-group">
                             <label>Nama Lengkap</label>
                             <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
-                            <label>Angkatan</label>
-                            <select class="form-control" name="angkatan">
-                                <?php for ($i=2017; $i <= 2024; $i++) {
-                                                    ?>
-                                <option value="{{ $i }}">{{ $i }}</option>
-                                <?php } ?>
-                            </select>
+                            <label>No Telepon</label>
+                            <input type="text" class="form-control" name="notelp" placeholder="No Telepon">
                         </div>
-                        <div class="form-group">
-                            <label>Status Mahasiswa</label>
-                            <select class="form-control" name="status">
-                                @foreach (\App\Models\Mahasiswa::$statuses as $value => $label)
-                                    <option value="{{ $value }}">{{ $label }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        {{-- <div class="form-group">
-                            <label>Foto</label>
-                            <input type="text" class="form-control" name="nim" placeholder="NIM">
-                        </div> --}}
                     </div>
-                </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -120,53 +91,37 @@
 
 
     <!-- modal edit -->
-    @foreach ($data_mahasiswa as $mhs)
-        <div class="modal fade" id="modalEdit{{ $mhs->nim }}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach ($data_dosen as $dsn)
+        <div class="modal fade" id="modalEdit{{ $dsn->nidp }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit data mahasiswa</h5>
+                        <h5 class="modal-title">Edit data dosen</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/mahasiswa/update/{{ $mhs->nim }}">
+                    <form method="POST" action="/dosen/update/{{ $dsn->nidp }}">
                         @csrf
+                        @method('PUT')
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>NIM</label>
-                                <input type="text" class="form-control" name="nim" value="{{ $mhs->nim }}">
+                                <label>NIDP</label>
+                                <input type="text" class="form-control" name="nidp" value="{{ $dsn->nidp }}">
                             </div>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="text" class="form-control" name="nama" value="{{ $mhs->nama }}">
+                                <input type="text" class="form-control" name="nama" value="{{ $dsn->nama }}">
                             </div>
                             <div class="form-group">
-                                <label>Angkatan</label>
-                                <select class="form-control" name="angkatan">
-                                    <?php for ($i=2017; $i <= 2024; $i++) {
-                                                    ?>
-                                    <option value="{{ $i }}">{{ $i }}</option>
-                                    <?php } ?>
-                                </select>
+                                <label>No Telepon</label>
+                                <input type="text" class="form-control" name="notelp" value="{{ $dsn->notelp }}">
                             </div>
-                            <div class="form-group">
-                                <label>Status Mahasiswa</label>
-                                <select class="form-control" name="status">
-                                    @foreach (\App\Models\Mahasiswa::$statuses as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            {{-- <div class="form-group">
-                            <label>Foto</label>
-                            <input type="text" class="form-control" name="nim" placeholder="NIM">
-                        </div> --}}
                         </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -174,17 +129,18 @@
     @endforeach
 
     {{-- Modal Hapus --}}
-    @foreach ($data_mahasiswa as $mhs)
-        <div class="modal fade" id="modalHapus{{ $mhs->nim }}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+    @foreach ($data_dosen as $dsn)
+        <div class="modal fade" id="modalHapus{{ $dsn->nidp }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Hapus data mahasiswa</h5>
+                        <h5 class="modal-title">Hapus data dosen</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="GET" action="/mahasiswa/destroy/{{ $mhs->nim }}">
+                    <form method="POST" action="/dosen/destroy/{{ $dsn->nidp }}">
                         @csrf
+                        @method('DELETE')
                         <div class="modal-body">
                             <h5>Yakin ingin menghapus data?</h5>
                         </div>

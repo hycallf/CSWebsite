@@ -95,7 +95,7 @@
                         <div class="form-group">
                             <label>Status Mahasiswa</label>
                             <select class="form-control" name="status">
-                                @foreach (\App\Models\Mahasiswa::$statuses as $value => $label)
+                                @foreach ($statuses as $value => $label)
                                     <option value="{{ $value }}">{{ $label }}</option>
                                 @endforeach
                             </select>
@@ -155,7 +155,7 @@
                             <div class="form-group">
                                 <label>Status Mahasiswa</label>
                                 <select class="form-control" name="status">
-                                    @foreach (\App\Models\Mahasiswa::$statuses as $value => $label)
+                                    @foreach ($statuses as $value => $label)
                                         <option value="{{ $value }}"
                                             {{ $mhs->status == $value ? 'selected' : '' }}>{{ $label }}</option>
                                     @endforeach
@@ -184,7 +184,7 @@
     {{-- Modal Hapus --}}
     @foreach ($data_mahasiswa as $mhs)
         <div class="modal fade" id="modalHapus{{ $mhs->nim }}" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Hapus data mahasiswa</h5>

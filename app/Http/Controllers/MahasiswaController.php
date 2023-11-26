@@ -16,14 +16,21 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::all();
+        // $status = Mahasiswa::$statuses;
         // $mahasiswa = DB::table('mahasiswas')->get();
 
         // return dd($mahasiswa);
         
         return view('admin.data_mahasiswa', [
             'data_mahasiswa' => $mahasiswa,
+            'statuses' => Mahasiswa::$statuses,
             'title' => 'Data Mahasiswa'
         ]);
+
+        //for createing modal confirmation
+        // $title = 'Delete Data!';
+        // $text = "Are you sure you want to delete?";
+        // confirmDelete($title, $text);
     }
 
     /**

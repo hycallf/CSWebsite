@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 
@@ -28,9 +30,21 @@ Route::get('/dashboard', [AdminController::class, 'index']);
 
 // CRUD MAHASISWA
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::post('/mahasiswa/store', [MahasiswaController::class, 'store']);
 Route::put('/mahasiswa/update/{nim}', [MahasiswaController::class, 'update']);
 Route::delete('/mahasiswa/destroy/{nim}', [MahasiswaController::class, 'destroy']);
+
+// CRUD DOSEN
+Route::get('/dosen', [DosenController::class, 'index']);
+Route::post('/dosen/store', [DosenController::class, 'store']);
+Route::put('/dosen/update/{nidp}', [DosenController::class, 'update']);
+Route::delete('/dosen/destroy/{nidp}', [DosenController::class, 'destroy']);
+
+// CRUD USER
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/user/store', [UserController::class, 'store']);
+Route::put('/user/update/{nidp}', [UserController::class, 'update']);
+Route::delete('/user/destroy/{nidp}', [UserController::class, 'destroy']);
 
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
