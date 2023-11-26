@@ -19,9 +19,9 @@ return new class extends Migration
             $table->integer('angkatan');
             $table->string('notelp', 20)->nullable();
             $table->string('alamat')->nullable();
-            $table->string('foto_profile')->nullable();
+            $table->string('foto_profile')->default('theme/images/profile/1.png');
             $table->string('bio')->nullable();
-            $table->integer('status')->index('status_statusmahasiswa');
+            $table->enum('status', ['aktif', 'gapyear', 'alumni', 'dropout'])->default('Aktif');
             $table->timestamps();
         });
     }
