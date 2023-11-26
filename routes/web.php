@@ -35,3 +35,17 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 // Route::post('/logout', [AuthController::class, 'logout']);
 // Route::post('/register', [AuthController::class, 'store']);
 
+
+Route::get('/mahasiswa', 'App\Http\Controllers\MahasiswaController@experimental');
+
+Route::post('/mahasiswa/store', 'App\Http\Controllers\MahasiswaController@store');
+
+Route::get('/mahasiswa/tambah','App\Http\Controllers\MahasiswaController@tambah');
+
+Route::get('/mahasiswa/edit/{id}','App\Http\Controllers\MahasiswaController@edit');
+
+Route::post('/mahasiswa/update','App\Http\Controllers\MahasiswaController@update');
+
+Route::get('/data_supervisor','App\Http\Controllers\SupervisorController@show');
+
+Route::post('/data_supervisor/store','App\Http\Controllers\SupervisorController@store');
