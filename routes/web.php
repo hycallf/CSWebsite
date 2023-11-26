@@ -18,7 +18,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('/login');
+    return view('/home');
 });
 // Route::get('/home', function () {
 //     return view('/home');
@@ -29,8 +29,8 @@ Route::get('/dashboard', [AdminController::class, 'index']);
 // CRUD MAHASISWA
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
-Route::post('/mahasiswa/update/{$nim}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
-Route::post('/mahasiswa/destroy/{$nim}', [MahasiswaController::class, 'destroy']);
+Route::put('/mahasiswa/update/{nim}', [MahasiswaController::class, 'update']);
+Route::delete('/mahasiswa/destroy/{nim}', [MahasiswaController::class, 'destroy']);
 
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);

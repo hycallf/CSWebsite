@@ -9,7 +9,9 @@ class Mahasiswa extends Model
 {
     use HasFactory;
     protected $table = 'mahasiswa';
-    protected $guarded = ['id'];
+    protected $primaryKey = 'nim';
+    protected $keyType = 'string';
+    protected $fillable = ['nim', 'nama', 'angkatan', 'status','notelp','alamat','bio','foto_profile'];
 
     public static $statuses = [
         'aktif' => 'Aktif',

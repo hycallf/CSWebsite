@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
-use App\Http\Requests\StoreMahasiswaRequest;
-use App\Http\Requests\UpdateMahasiswaRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MahasiswaController extends Controller
 {
@@ -36,25 +37,28 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
-        $validatedData = $request->validate([
-            'nim' => 'required',
-            'nama' => 'required',
-            'angkatan' => 'required',
-            'status' => 'required',
-            // Add more fields as needed
-        ]);
-
-        Mahasiswa::create($validatedData);
-        // Mahasiswa::create([
-        //     'nim' => $request->nim,
-        //     'nama' => $request->nama,
-        //     'angkatan' => $request->angkatan,
-        //     'status'=> $request->status
+        // $validatedData = $request->validate([
+        //     'nim' => 'required',
+        //     'nama' => 'required',
+        //     'angkatan' => 'required',
+        //     'status' => 'required',
+        //     // Add more fields as needed
         // ]);
 
-        return redirect('/mahasiswa').with('success', 'Berhasil menambah data mahasiswa');
+        // Mahasiswa::create($validatedData);
+        Mahasiswa::create([
+            'nim' => $request->nim,
+            'nama' => $request->nama,
+            'angkatan' => $request->angkatan,
+            'status'=> $request->status,
+            'notelp' => $request->notelp,
+            'alamat' => $request->alamat,
+        ]);
+
+        Alert::success('Success', 'Berhasil menambah data mahasiswa');
+        return redirect()->back();
 
     }
 
@@ -80,16 +84,44 @@ class MahasiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMahasiswaRequest $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, String $nim) : RedirectResponse
     {
-        //
+        $mhs = Mahasiswa::where('nim', $nim)->first();
+
+        if ($mhs) {
+            $mhs->update([
+                'nim' => $request->nim,
+                'nama' => $request->nama,
+                'angkatan' => $request->angkatan,
+                'status' => $request->status,
+                'notelp' => $request->notelp,
+                'alamat' => $request->alamat,
+            ]);
+
+            Alert::success('Success', 'Berhasil mengubah data mahasiswa');
+            return redirect('/mahasiswa');
+        } else {
+            Alert::error('Error', 'Data tidak ditemukan');
+            return redirect('/mahasiswa');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy(String $nim)
     {
-        //
+        $mhs = Mahasiswa::where('nim', $nim)->first();
+
+    if ($mhs) {
+        // Delete the record
+        $mhs->delete();
+        Alert::success('Success', 'Berhasil menghapus data mahasiswa');
+        return redirect('/mahasiswa');
+        
+    } else {
+        return redirect('/mahasiswa')->with('error', 'Data not found');
+        Alert::error('Error', 'Data tidak ditemukan');
+    }
     }
 }

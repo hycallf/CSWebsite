@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Mahasiswa</h4>
+                        <h4 class="card-title">Data Dosen</h4>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Tambah
                             Data</button>
                         <div class="table-responsive">
@@ -26,7 +26,6 @@
                                         <th>Nim</th>
                                         <th>Nama</th>
                                         <th>Angkatan</th>
-                                        <th>No Telepon</th>
                                         <th>Status Mahasiswa</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -37,7 +36,6 @@
                                             <td>{{ $item->nim }}</td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->angkatan }}</td>
-                                            <td>{{ $item->notelp }}</td>
                                             <td>{{ $item->status }}</td>
                                             {{-- <td>{{ $item->alamat }}</td> --}}
                                             <td>
@@ -50,6 +48,15 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Nim</th>
+                                        <th>Nama</th>
+                                        <th>Angkatan</th>
+                                        <th>Status Mahasiswa</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -68,7 +75,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/mahasiswa/store">
+                <form method="POST" action="{{ route('mahasiswa.store') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -80,16 +87,12 @@
                             <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
-                            <label>No Telepon</label>
-                            <input type="text" class="form-control" name="notelp" placeholder="No Telepon">
-                        </div>
-
-                        <div class="form-group">
                             <label>Angkatan</label>
                             <select class="form-control" name="angkatan">
-                                @for ($year = date('Y'); $year >= 2017; $year--)
-                                    <option value="{{ $year }}">{{ $year }}</option>
-                                @endfor
+                                <?php for ($i=2017; $i <= 2024; $i++) {
+                                                    ?>
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -100,21 +103,16 @@
                                 @endforeach
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label>No Telepon</label>
-                            <input type="text" class="form-control" name="notelp" placeholder="No Telepon">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Alamat</label>
-                            <textarea class="form-control" name="alamat" rows="3" placeholder="Alamat"></textarea>
-                        </div>
+                        {{-- <div class="form-group">
+                            <label>Foto</label>
+                            <input type="text" class="form-control" name="nim" placeholder="NIM">
+                        </div> --}}
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -133,7 +131,6 @@
                     </div>
                     <form method="POST" action="/mahasiswa/update/{{ $mhs->nim }}">
                         @csrf
-                        @method('PUT')
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>NIM</label>
@@ -146,35 +143,30 @@
                             <div class="form-group">
                                 <label>Angkatan</label>
                                 <select class="form-control" name="angkatan">
-                                    @for ($year = date('Y'); $year >= 2017; $year--)
-                                        <option value="{{ $year }}"
-                                            {{ $mhs->angkatan == $year ? 'selected' : '' }}>{{ $year }}</option>
-                                    @endfor
+                                    <?php for ($i=2017; $i <= 2024; $i++) {
+                                                    ?>
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Status Mahasiswa</label>
                                 <select class="form-control" name="status">
                                     @foreach (\App\Models\Mahasiswa::$statuses as $value => $label)
-                                        <option value="{{ $value }}"
-                                            {{ $mhs->status == $value ? 'selected' : '' }}>{{ $label }}</option>
+                                        <option value="{{ $value }}">{{ $label }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>No Telepon</label>
-                                <input type="text" class="form-control" name="notelp" value="{{ $mhs->notelp }}">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea class="form-control" name="alamat" rows="3" value="{{ $mhs->alamat }}"></textarea>
-                            </div>
+                            {{-- <div class="form-group">
+                            <label>Foto</label>
+                            <input type="text" class="form-control" name="nim" placeholder="NIM">
+                        </div> --}}
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -191,9 +183,8 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/mahasiswa/destroy/{{ $mhs->nim }}">
+                    <form method="GET" action="/mahasiswa/destroy/{{ $mhs->nim }}">
                         @csrf
-                        @method('DELETE')
                         <div class="modal-body">
                             <h5>Yakin ingin menghapus data?</h5>
                         </div>
