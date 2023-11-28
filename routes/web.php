@@ -9,6 +9,7 @@ use App\Http\Controllers\TipembkmController;
 use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SupervisorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,11 @@ Route::get('/instansi', [InstansiController::class, 'index']);
 Route::post('/instansi/store', [InstansiController::class, 'store']);
 Route::put('/instansi/update/{id}', [InstansiController::class, 'update']);
 Route::delete('/instansi/destroy/{id}', [InstansiController::class, 'destroy']);
+// CRUD SUPERVISOR
+Route::get('/supervisor', [SupervisorController::class, 'index']);
+Route::post('/supervisor/store', [SupervisorController::class, 'store']);
+Route::put('/supervisor/update/{id_supervisor}', [SupervisorController::class, 'update']);
+Route::delete('/supervisor/destroy/{id_supervisor}', [SupervisorController::class, 'destroy']);
 
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
@@ -67,4 +73,3 @@ Route::delete('/instansi/destroy/{id}', [InstansiController::class, 'destroy']);
 // Route::post('/login', [AuthController::class, 'authenticate']);
 // Route::post('/logout', [AuthController::class, 'logout']);
 // Route::post('/register', [AuthController::class, 'store']);
-

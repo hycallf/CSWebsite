@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">{{ $title }}</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Data Supervisor</a></li>
             </ol>
         </div>
     </div>
@@ -16,42 +16,46 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Mahasiswa</h4>
+                        <h4 class="card-title">Data Supervisor</h4>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Tambah
                             Data</button>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>Nim</th>
+                                        <th>ID Supervisor</th>
                                         <th>Nama</th>
-                                        <th>Angkatan</th>
-                                        <th>No Telepon</th>
-                                        <th>Status</th>
-                                        <th>Alamat</th>
-                                        <th>Aksi</th>
+                                        <th>No. Telp</th>
+                                        <th>Email</th>
+                                    
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_mahasiswa as $item)
+                                    @foreach ($supervisor as $item)
                                         <tr>
-                                            <td>{{ $item->nim }}</td>
-                                            <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->angkatan }}</td>
+                                            <td>{{ $item->id_supervisor }}</td>
+                                            <td>{{ $item->nama_supervisor }}</td>
                                             <td>{{ $item->notelp }}</td>
-                                            <td>{{ $item->status }}</td>
-                                            <td>{{ $item->alamat }}</td>
+                                            <td>{{ $item->email }}</td>
                                             {{-- <td>{{ $item->alamat }}</td> --}}
                                             <td>
-                                                <a href="#modalEdit{{ $item->nim }}" class="btn btn-warning"
+                                                <a href="#modalEdit{{ $item->id_supervisor }}" class="btn btn-warning"
                                                     data-toggle="modal"><i class="fa fa-edit"></i></a>
-                                                <a href="#modalHapus{{ $item->nim }}" class="btn btn-danger"
+                                                <a href="#modalHapus{{ $item->id_supervisor }}" class="btn btn-danger"
                                                     data-toggle="modal"><i class="fa fa-trash"></i></a>
                                             </td>
                                             <!-- Add other table cells as needed -->
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>ID Supervisor</th>
+                                        <th>Nama</th>
+                                        <th>No. Telp</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -61,25 +65,22 @@
         <!-- #/ container -->
     </div>
 
-    <!-- modal tambah -->
+    <!-- Large modal -->
     <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah data mahasiswa</h5>
+                    <h5 class="modal-title">Tambah data supervisor</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/mahasiswa/store">
+                <form method="POST" action="/supervisor/store">
                     @csrf
                     <div class="modal-body">
+                        
                         <div class="form-group">
-                            <label>NIM</label>
-                            <input type="text" class="form-control" name="nim" placeholder="NIM">
-                        </div>
-                        <div class="form-group">
-                            <label>Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+                            <label>Nama Supervisor</label>
+                            <input type="text" class="form-control" name="nama_supervisor" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
                             <label>No Telepon</label>
@@ -87,25 +88,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Angkatan</label>
-                            <select class="form-control" name="angkatan">
-                                @for ($year = date('Y'); $year >= 2017; $year--)
-                                    <option value="{{ $year }}">{{ $year }}</option>
-                                @endfor
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Status Mahasiswa</label>
-                            <select class="form-control" name="status">
-                                @foreach ($statuses as $value => $label)
-                                    <option value="{{ $value }}">{{ $label }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Alamat</label>
-                            <textarea class="form-control" name="alamat" rows="3" placeholder="Alamat"></textarea>
+                            <label>Email</label>
+                            <input class="form-control" name="email" placeholder="E-mail">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -117,55 +101,34 @@
         </div>
     </div>
 
-
     <!-- modal edit -->
-    @foreach ($data_mahasiswa as $mhs)
-        <div class="modal fade" id="modalEdit{{ $mhs->nim }}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach ($data_supervisor as $supervisor)
+        <div class="modal fade" id="modalEdit{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit data mahasiswa</h5>
+                        <h5 class="modal-title">Edit data supervisor</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/mahasiswa/update/{{ $mhs->nim }}">
+                    <form method="POST" action="/supervisor/update/{{ $supervisor->id_supervisor }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label>NIM</label>
-                                <input type="text" class="form-control" name="nim" value="{{ $mhs->nim }}">
-                            </div>
+                           
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="text" class="form-control" name="nama" value="{{ $mhs->nama }}">
+                                <input type="text" class="form-control" name="nama_supervisor" value="{{ $supervisor->nama_supervisor }}">
                             </div>
-                            <div class="form-group">
-                                <label>Angkatan</label>
-                                <select class="form-control" name="angkatan">
-                                    @for ($year = date('Y'); $year >= 2017; $year--)
-                                        <option value="{{ $year }}"
-                                            {{ $mhs->angkatan == $year ? 'selected' : '' }}>{{ $year }}</option>
-                                    @endfor
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Status Mahasiswa</label>
-                                <select class="form-control" name="status">
-                                    @foreach ($statuses as $value => $label)
-                                        <option value="{{ $value }}"
-                                            {{ $mhs->status == $value ? 'selected' : '' }}>{{ $label }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            
                             <div class="form-group">
                                 <label>No Telepon</label>
-                                <input type="text" class="form-control" name="notelp" value="{{ $mhs->notelp }}">
+                                <input type="text" class="form-control" name="notelp" value="{{ $supervisor->notelp }}">
                             </div>
 
                             <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea class="form-control" name="alamat" rows="3" value="{{ $mhs->alamat }}"></textarea>
+                                <label>Email</label>
+                                <input class="form-control" name="email" value="{{ $supervisor->email }}">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -178,17 +141,17 @@
         </div>
     @endforeach
 
-    {{-- Modal Hapus --}}
-    @foreach ($data_mahasiswa as $mhs)
-        <div class="modal fade" id="modalHapus{{ $mhs->nim }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- modal hapus -->
+    @foreach ($data_supervisor as $supervisor)
+        <div class="modal fade" id="modalHapus{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Hapus data mahasiswa</h5>
+                        <h5 class="modal-title">Hapus data supervisor</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/mahasiswa/destroy/{{ $mhs->nim }}">
+                    <form method="POST" action="/supervisor/destroy/{{ $supervisor->id_supervisor }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
@@ -203,4 +166,7 @@
             </div>
         </div>
     @endforeach
+
+
+    
 @endsection
