@@ -27,7 +27,7 @@
                                         <th>Nama</th>
                                         <th>No. Telp</th>
                                         <th>Email</th>
-                                    
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,14 +48,6 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>ID Supervisor</th>
-                                        <th>Nama</th>
-                                        <th>No. Telp</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -74,10 +66,10 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/supervisor/store">
+                <form method="POST" action="{{ route('supervisor.store') }}">
                     @csrf
                     <div class="modal-body">
-                        
+
                         <div class="form-group">
                             <label>Nama Supervisor</label>
                             <input type="text" class="form-control" name="nama_supervisor" placeholder="Nama Lengkap">
@@ -103,7 +95,8 @@
 
     <!-- modal edit -->
     @foreach ($data_supervisor as $supervisor)
-        <div class="modal fade" id="modalEdit{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modalEdit{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -111,19 +104,21 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/supervisor/update/{{ $supervisor->id_supervisor }}">
+                    <form method="POST" action="{{ route('supervisor.update', $supervisor->id_supervisor) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
-                           
+
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="text" class="form-control" name="nama_supervisor" value="{{ $supervisor->nama_supervisor }}">
+                                <input type="text" class="form-control" name="nama_supervisor"
+                                    value="{{ $supervisor->nama_supervisor }}">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>No Telepon</label>
-                                <input type="text" class="form-control" name="notelp" value="{{ $supervisor->notelp }}">
+                                <input type="text" class="form-control" name="notelp"
+                                    value="{{ $supervisor->notelp }}">
                             </div>
 
                             <div class="form-group">
@@ -143,7 +138,8 @@
 
     <!-- modal hapus -->
     @foreach ($data_supervisor as $supervisor)
-        <div class="modal fade" id="modalHapus{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modalHapus{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog"
+            aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -151,7 +147,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/supervisor/destroy/{{ $supervisor->id_supervisor }}">
+                    <form method="POST" action="{{ route('supervisor.destroy', $supervisor->id_supervisor) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
@@ -166,7 +162,4 @@
             </div>
         </div>
     @endforeach
-
-
-    
 @endsection

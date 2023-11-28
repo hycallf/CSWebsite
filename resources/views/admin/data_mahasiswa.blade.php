@@ -70,7 +70,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/mahasiswa/store">
+                <form method="POST" action="{{ route('mahasiswa.store') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -128,7 +128,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/mahasiswa/update/{{ $mhs->nim }}">
+                    <form method="POST" action="{{ route('mahasiswa.update', $mhs->nim) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
@@ -188,7 +188,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/mahasiswa/destroy/{{ $mhs->nim }}">
+                    <form method="POST" action="{{ route('mahasiswa.destroy', $mhs->nim) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

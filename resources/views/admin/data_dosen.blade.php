@@ -64,7 +64,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/dosen/store">
+                <form method="POST" action="{{ route('dosen.store') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -100,7 +100,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/dosen/update/{{ $dsn->nidp }}">
+                    <form method="POST" action="{{ route('dosen.update', $dsn->nidp) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
@@ -138,7 +138,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/dosen/destroy/{{ $dsn->nidp }}">
+                    <form method="POST" action="{{ route('dosen.destroy', $dsn->nidp) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

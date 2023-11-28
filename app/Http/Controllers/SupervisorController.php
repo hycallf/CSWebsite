@@ -12,15 +12,15 @@ class SupervisorController extends Controller
 {
    
 
-    public function show(){
+    // public function show(){
 
-        // mengambil data dari table pegawai
-        $supervisor = DB::table('supervisor')->get();
+    //     // mengambil data dari table pegawai
+    //     $supervisor = DB::table('supervisor')->get();
         
-        // mengirim data pegawai ke view index
-        return view('admin/data_supervisor',['supervisor' => $supervisor]);
+    //     // mengirim data pegawai ke view index
+    //     return view('admin/data_supervisor',['supervisor' => $supervisor]);
 
-    }
+    // }
 
     // public function store(Request $request){
  
@@ -35,20 +35,20 @@ class SupervisorController extends Controller
  
     // }
 
-    public function tambah()
-    {
-	    // memanggil view tambah
-	    return view('data_supervisor/tambah');
-    }
+    // public function tambah()
+    // {
+	//     // memanggil view tambah
+	//     return view('data_supervisor/tambah');
+    // }
 
     //
-    public function edit($nim)
-    {
-        // mengambil data pegawai berdasarkan id yang dipilih
-        $mahasiswa = DB::table('supervisor')->where('nim', $nim)->get();
-        // passing data pegawai yang didapat ke view edit.blade.php
-        return view('mahasiswa/edit',['mahasiswa' => $mahasiswa]);
-    }
+    // public function edit($nim)
+    // {
+    //     // mengambil data pegawai berdasarkan id yang dipilih
+    //     $mahasiswa = DB::table('supervisor')->where('nim', $nim)->get();
+    //     // passing data pegawai yang didapat ke view edit.blade.php
+    //     return view('mahasiswa/edit',['mahasiswa' => $mahasiswa]);
+    // }
 
     // public function update(Request $request)
     // {
@@ -92,10 +92,8 @@ class SupervisorController extends Controller
 
     public function store(Request $request) : RedirectResponse
     {
-        $id_supervisor = "SPV";
 
         Supervisor::create([
-            'id_supervisor' => $id_supervisor,
             'nama_supervisor' => $request->nama_supervisor,
             'notelp' => $request->notelp,
             'email' => $request->email,

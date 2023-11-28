@@ -10,7 +10,7 @@ class Supervisor extends Model
     use HasFactory;
     protected $table = 'supervisor';
     protected $primaryKey = 'id_supervisor';
-    protected $keyType = 'string';
+    // protected $keyType = 'string';
     protected $fillable = ['nama_supervisor', 'notelp', 'email'];
 
 

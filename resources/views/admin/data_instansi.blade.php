@@ -67,7 +67,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/instansi/store">
+                <form method="POST" action="{{ route('instansi.store', $instansi->id) }}">
                     @csrf
                     <div class="modal-body">
 
@@ -108,7 +108,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/instansi/update/{{ $instansi->id }}">
+                    <form method="POST" action="{{ route('instansi.update', $instansi->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
@@ -150,7 +150,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/instansi/destroy/{{ $instansi->id }}">
+                    <form method="POST" action="{{ route('instansi.destroy', $instansi->id) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

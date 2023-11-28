@@ -76,9 +76,7 @@ class TipembkmController extends Controller
 
         if ($dsn) {
             $dsn->update([
-                'id' => $request->id,
                 'nama' => $request->nama,
-                'notelp' => $request->notelp,
             ]);
 
             Alert::success('Success', 'Berhasil mengubah data tipe_mbkm');

@@ -80,7 +80,6 @@ class InstansiController extends Controller
 
         if ($dsn) {
             $dsn->update([
-                'id' => $request->id,
                 'nama' => $request->nama,
                 'alamat' => $request->alamat,
                 'email' => $request->email,

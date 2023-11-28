@@ -25,4 +25,9 @@ class Mahasiswa extends Model
     {
         return $this->hasOne(User::class, 'mahasiswa_nim', 'nim');
     }
+
+    public function publikasi()
+    {
+        return $this->belongsToMany(Publikasi::class, 'publikasi_mahasiswa');
+    }
 }

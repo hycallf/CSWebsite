@@ -66,7 +66,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="/user/store" id="multiStepForm">
+                    <form method="POST" action="{{ route('user.store') }}" id="multiStepForm">
                         @csrf
                         <!-- Step 1 -->
                         <div id="step1">
@@ -158,7 +158,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/user/update/{{ $user->username }}">
+                    <form method="POST" action="{{ route('user.update', $user->username) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
@@ -189,7 +189,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/user/destroy/{{ $user->username }}">
+                    <form method="POST" action="{{ route('user.destroy', $user->username) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

@@ -61,7 +61,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/tipe_mbkm/store">
+                <form method="POST" action="{{ route('tipe_mbkm.store') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -89,22 +89,16 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/tipe_mbkm/update/{{ $dsn->id }}">
+                    <form method="POST" action="{{ route('tipe_mbkm.update', $dsn->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
+
                             <div class="form-group">
-                                <label>NIDP</label>
-                                <input type="text" class="form-control" name="id" value="{{ $dsn->id }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Nama Lengkap</label>
+                                <label>Jenis MBKM</label>
                                 <input type="text" class="form-control" name="nama" value="{{ $dsn->nama }}">
                             </div>
-                            <div class="form-group">
-                                <label>No Telepon</label>
-                                <input type="text" class="form-control" name="notelp" value="{{ $dsn->notelp }}">
-                            </div>
+
                         </div>
 
                         <div class="modal-footer">
@@ -127,7 +121,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/tipe_mbkm/destroy/{{ $dsn->id }}">
+                    <form method="POST" action="{{ route('tipe_mbkm.destroy', $dsn->id) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

@@ -18,4 +18,9 @@ class Dosen extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function publikasi()
+    {
+        return $this->belongsToMany(Publikasi::class, 'publikasi_dosen');
+    }
 }

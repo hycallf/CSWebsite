@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('publikasi', function (Blueprint $table) {
-            $table->integer('id_publikasi', true);
+            $table->id();
             $table->string('judul', 200);
             $table->string('jurnal', 100);
             $table->string('penerbit', 100)->nullable();
