@@ -20,4 +20,9 @@ class Mahasiswa extends Model
         'dropout' => 'Drop Out',
         // Add other statuses as needed
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'mahasiswa_nim', 'nim');
+    }
 }

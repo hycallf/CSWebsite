@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tipe_mbkm', function (Blueprint $table) {
-            $table->integer('id_tipembkm', true);
-            $table->string('nama_tipembkm', 30);
+            $table->id();
+            $table->string('nama', 30);
             $table->timestamps();
         });
     }

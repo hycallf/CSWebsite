@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->string('nidp', 30)->primary();
-            $table->string('nama_dosen', 50);
+            $table->string('nama', 50);
             $table->string('notelp', 20)->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();

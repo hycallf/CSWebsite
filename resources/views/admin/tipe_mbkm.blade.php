@@ -16,30 +16,27 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Dosen</h4>
+                        <h4 class="card-title">{{ $title }}</h4>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Tambah
                             Data</button>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>Nidp</th>
+                                        <th>Id</th>
                                         <th>Nama</th>
-                                        <th>No Telepon</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_dosen as $item)
+                                    @foreach ($tipe_mbkm as $item)
                                         <tr>
-                                            <td>{{ $item->nidp }}</td>
+                                            <td>{{ $item->id }}</td>
                                             <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->notelp }}</td>
-                                            {{-- <td>{{ $item->alamat }}</td> --}}
                                             <td>
-                                                <a href="#modalEdit{{ $item->nidp }}" class="btn btn-warning"
+                                                <a href="#modalEdit{{ $item->id }}" class="btn btn-warning"
                                                     data-toggle="modal"><i class="fa fa-edit"></i></a>
-                                                <a href="#modalHapus{{ $item->nidp }}" class="btn btn-danger"
+                                                <a href="#modalHapus{{ $item->id }}" class="btn btn-danger"
                                                     data-toggle="modal"><i class="fa fa-trash"></i></a>
                                             </td>
                                             <!-- Add other table cells as needed -->
@@ -60,24 +57,16 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah data dosen</h5>
+                    <h5 class="modal-title">Tambah data tipe_mbkm</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/dosen/store">
+                <form method="POST" action="/tipe_mbkm/store">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>NIDP</label>
-                            <input type="text" class="form-control" name="nidp" placeholder="NIDP">
-                        </div>
-                        <div class="form-group">
-                            <label>Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
-                        </div>
-                        <div class="form-group">
-                            <label>No Telepon</label>
-                            <input type="text" class="form-control" name="notelp" placeholder="No Telepon">
+                            <label>Jenis MBKM</label>
+                            <input type="text" class="form-control" name="nama" placeholder="Jenis MBKM">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -91,22 +80,22 @@
 
 
     <!-- modal edit -->
-    @foreach ($data_dosen as $dsn)
-        <div class="modal fade" id="modalEdit{{ $dsn->nidp }}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach ($tipe_mbkm as $dsn)
+        <div class="modal fade" id="modalEdit{{ $dsn->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit data dosen</h5>
+                        <h5 class="modal-title">Edit data tipe_mbkm</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/dosen/update/{{ $dsn->nidp }}">
+                    <form method="POST" action="/tipe_mbkm/update/{{ $dsn->id }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>NIDP</label>
-                                <input type="text" class="form-control" name="nidp" value="{{ $dsn->nidp }}">
+                                <input type="text" class="form-control" name="id" value="{{ $dsn->id }}">
                             </div>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
@@ -129,16 +118,16 @@
     @endforeach
 
     {{-- Modal Hapus --}}
-    @foreach ($data_dosen as $dsn)
-        <div class="modal fade" id="modalHapus{{ $dsn->nidp }}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach ($tipe_mbkm as $dsn)
+        <div class="modal fade" id="modalHapus{{ $dsn->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Hapus data dosen</h5>
+                        <h5 class="modal-title">Hapus data tipe_mbkm</h5>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="/dosen/destroy/{{ $dsn->nidp }}">
+                    <form method="POST" action="/tipe_mbkm/destroy/{{ $dsn->id }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->string('foto_profile')->default('theme/images/profile/1.png');
             $table->string('bio')->nullable();
-            $table->enum('status', ['aktif', 'gapyear', 'alumni', 'dropout'])->default('Aktif');
+            $table->enum('status', ['aktif', 'gapyear', 'alumni', 'dropout'])->default('aktif');
             $table->timestamps();
         });
     }
