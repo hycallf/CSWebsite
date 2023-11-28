@@ -6,6 +6,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TipembkmController;
+use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 
@@ -52,6 +53,12 @@ Route::get('/tipe_mbkm', [TipembkmController::class, 'index']);
 Route::post('/tipe_mbkm/store', [TipembkmController::class, 'store']);
 Route::put('/tipe_mbkm/update/{id}', [TipembkmController::class, 'update']);
 Route::delete('/tipe_mbkm/destroy/{id}', [TipembkmController::class, 'destroy']);
+
+// CRUD INSTANSE
+Route::get('/instansi', [InstansiController::class, 'index']);
+Route::post('/instansi/store', [InstansiController::class, 'store']);
+Route::put('/instansi/update/{id}', [InstansiController::class, 'update']);
+Route::delete('/instansi/destroy/{id}', [InstansiController::class, 'destroy']);
 
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
