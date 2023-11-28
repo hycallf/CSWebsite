@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Mahasiswa;
 use App\Models\User;
+use App\Models\Dosen;
+use App\Models\Tipembkm;
 
 class DatabaseSeeder extends Seeder
 {
@@ -66,6 +68,32 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Muhammad Haikal Fuady',
             'angkatan' => '2020',
             'status'=> 'Aktif'
+        ]);
+
+        Dosen::create([
+            'nidp' => '123731882',
+            'nama' => 'Ahlijati Nuraminah',
+            'notelp' => '0812312381',
+        ]);
+
+        Dosen::create([
+            'nidp' => '123812938',
+            'nama' => 'Ahmad Nur Ihsan Purwanto',
+            'notelp' => '0812312322',
+        ]);
+
+        Dosen::create([
+            'nidp' => '123812938',
+            'nama' => 'Ahmad Nur Ihsan Purwanto',
+            'notelp' => '0812312322',
+        ]);
+
+        Tipembkm::create([
+            'nama' => 'Magang',
+        ]);
+
+        Tipembkm::create([
+            'nama' => 'Studi Independen',
         ]);
     }
 }
