@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Status;
-use App\Http\Requests\StoreMahasiswaRequest;
-use App\Http\Requests\UpdateMahasiswaRequest;
+use App\Models\Supervisor;
+use Illuminate\Http\RedirectResponse;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SupervisorController extends Controller
 {
+   
+
     public function show(){
 
         // mengambil data dari table pegawai
@@ -20,18 +22,18 @@ class SupervisorController extends Controller
 
     }
 
-    public function store(Request $request){
+    // public function store(Request $request){
  
-        DB::table('supervisor')->insert([
-            //'id_supervisor' => $request->id_supervisor,
-            'nama_supervisor' => $request->nama_supervisor,
-            'notelp' => $request->notelp,
-            'email' => $request->email,
-        ]);
-        // memanggil view tambah
-        return redirect('/data_supervisor');
+    //     DB::table('supervisor')->insert([
+    //         //'id_supervisor' => $request->id_supervisor,
+    //         'nama_supervisor' => $request->nama_supervisor,
+    //         'notelp' => $request->notelp,
+    //         'email' => $request->email,
+    //     ]);
+    //     // memanggil view tambah
+    //     return redirect('/data_supervisor');
  
-    }
+    // }
 
     public function tambah()
     {
@@ -48,17 +50,94 @@ class SupervisorController extends Controller
         return view('mahasiswa/edit',['mahasiswa' => $mahasiswa]);
     }
 
-    public function update(Request $request)
-    {
-        // update data pegawai
-        DB::table('supervisor')->where('id_supervisor',$request->id_supervisor)->update([
-            'nama_supervisor' => $request->nama,
-            'email' => $request->email,
-            'notelp' => $request->notelp
+    // public function update(Request $request)
+    // {
+    //     // update data pegawai
+    //     DB::table('supervisor')->where('id_supervisor',$request->id_supervisor)->update([
+    //         'nama_supervisor' => $request->nama,
+    //         'email' => $request->email,
+    //         'notelp' => $request->notelp
             
+    //     ]);
+    //     // alihkan halaman ke halaman pegawai
+    //     return redirect('/mahasiswa');
+    // }
+
+    //============================================================
+    //
+    //          FFFFFFFFFFFFFF   IIIII   XXXXX      XXXXX
+    //          FFFFFFFFFFFFFF   IIIII   XXXXX      XXXXX
+    //          FFFF             IIIII     XXXXX  XXXXX
+    //          FFFF             IIIII       XXXXXXXX    
+    //          FFFFFFFFFFFF     IIIII        XXXXXX
+    //          FFFFFFFFFFFF     IIIII      XXXXXXXXXX
+    //          FFFF             IIIII     XXXXX  XXXXX
+    //          FFFF             IIIII   XXXXX      XXXXX
+    //          FFFF             IIIII   XXXXX      XXXXX
+    //          FFFF             IIIII   XXXXX      XXXXX
+    //
+    //============================================================
+
+    public function index()
+    {
+        $supervisor = Supervisor::all();
+        
+        return view('admin.data_supervisor', [
+            'data_supervisor' => $supervisor,
+            'supervisor' => $supervisor,
+            'title' => 'Data Supervisor'
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/mahasiswa');
+
     }
 
+    public function store(Request $request) : RedirectResponse
+    {
+        $id_supervisor = "SPV";
+
+        Supervisor::create([
+            'id_supervisor' => $id_supervisor,
+            'nama_supervisor' => $request->nama_supervisor,
+            'notelp' => $request->notelp,
+            'email' => $request->email,
+        ]);
+
+        Alert::success('Success', 'Berhasil menambah data supervisor!');
+        return redirect()->back();
+
+    }
+
+    public function update(Request $request, String $id_supervisor) : RedirectResponse
+    {
+        $supervisor = Supervisor::where('id_supervisor', $id_supervisor)->first();
+
+        if ($supervisor) {
+            $supervisor->update([
+                'nama_supervisor' => $request->nama_supervisor,
+                'notelp' => $request->notelp,
+                'email' => $request->email,
+            ]);
+
+            Alert::success('Success', 'Berhasil mengubah data supervisor');
+            return redirect()->back();
+        } else {
+            Alert::error('Error', 'Data tidak ditemukan');
+            return redirect()->back();
+        }
+    }
+
+    public function destroy(String $id_supervisor)
+    {
+        $supervisor = Supervisor::where('id_supervisor', $id_supervisor)->first();
+
+    if ($supervisor) {
+        // Delete the record
+        $supervisor->delete();
+        Alert::success('Success', 'Berhasil menghapus data supervisor');
+        return redirect()->back();
+        
+    } else {
+        return redirect('/supervisor')->with('error', 'Data not found');
+        Alert::error('Error', 'Data tidak ditemukan');
+    }
+    }
 }

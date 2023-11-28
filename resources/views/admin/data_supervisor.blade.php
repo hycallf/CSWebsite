@@ -39,8 +39,10 @@
                                             <td>{{ $item->email }}</td>
                                             {{-- <td>{{ $item->alamat }}</td> --}}
                                             <td>
-                                                <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                <a href="#modalEdit{{ $item->id_supervisor }}" class="btn btn-warning"
+                                                    data-toggle="modal"><i class="fa fa-edit"></i></a>
+                                                <a href="#modalHapus{{ $item->id_supervisor }}" class="btn btn-danger"
+                                                    data-toggle="modal"><i class="fa fa-trash"></i></a>
                                             </td>
                                             <!-- Add other table cells as needed -->
                                         </tr>
@@ -48,7 +50,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <<th>ID Supervisor</th>
+                                        <th>ID Supervisor</th>
                                         <th>Nama</th>
                                         <th>No. Telp</th>
                                         <th>Email</th>
@@ -68,23 +70,103 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah data Supervisor</h5>
+                    <h5 class="modal-title">Tambah data supervisor</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="/data_supervisor/store">
+                <form method="POST" action="/supervisor/store">
+                    @csrf
                     <div class="modal-body">
-                        {{ csrf_field() }}
-                        Nama <input class="input-default" type="text" name="nama_supervisor" required="required"><br>
-                        No Telp <input class="input-default" type="text" name="notelp" required="required"><br>
-                        Email <input class="input-default" type="text" name="email" required="required"><br>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        
+                        <div class="form-group">
+                            <label>Nama Supervisor</label>
+                            <input type="text" class="form-control" name="nama_supervisor" placeholder="Nama Lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No Telepon</label>
+                            <input type="text" class="form-control" name="notelp" placeholder="No Telepon">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-control" name="email" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
             </div>
         </div>
     </div>
+
+    <!-- modal edit -->
+    @foreach ($data_supervisor as $supervisor)
+        <div class="modal fade" id="modalEdit{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit data supervisor</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <form method="POST" action="/supervisor/update/{{ $supervisor->id_supervisor }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="modal-body">
+                           
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" class="form-control" name="nama_supervisor" value="{{ $supervisor->nama_supervisor }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>No Telepon</label>
+                                <input type="text" class="form-control" name="notelp" value="{{ $supervisor->notelp }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" name="email" value="{{ $supervisor->email }}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    <!-- modal hapus -->
+    @foreach ($data_supervisor as $supervisor)
+        <div class="modal fade" id="modalHapus{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus data supervisor</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                        </button>
+                    </div>
+                    <form method="POST" action="/supervisor/destroy/{{ $supervisor->id_supervisor }}">
+                        @csrf
+                        @method('DELETE')
+                        <div class="modal-body">
+                            <h5>Yakin ingin menghapus data?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">cancel</button>
+                            <button type="submit" class="btn btn-danger">Yakin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+
+    
 @endsection

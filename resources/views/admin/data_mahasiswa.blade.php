@@ -27,7 +27,8 @@
                                         <th>Nama</th>
                                         <th>Angkatan</th>
                                         <th>No Telepon</th>
-                                        <th>Status Mahasiswa</th>
+                                        <th>Status</th>
+                                        <th>Alamat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -39,6 +40,7 @@
                                             <td>{{ $item->angkatan }}</td>
                                             <td>{{ $item->notelp }}</td>
                                             <td>{{ $item->status }}</td>
+                                            <td>{{ $item->alamat }}</td>
                                             {{-- <td>{{ $item->alamat }}</td> --}}
                                             <td>
                                                 <a href="#modalEdit{{ $item->nim }}" class="btn btn-warning"
@@ -99,11 +101,6 @@
                                     <option value="{{ $value }}">{{ $label }}</option>
                                 @endforeach
                             </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>No Telepon</label>
-                            <input type="text" class="form-control" name="notelp" placeholder="No Telepon">
                         </div>
 
                         <div class="form-group">
