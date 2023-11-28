@@ -82,12 +82,6 @@ class DatabaseSeeder extends Seeder
             'notelp' => '0812312322',
         ]);
 
-        Dosen::create([
-            'nidp' => '123812938',
-            'nama' => 'Ahmad Nur Ihsan Purwanto',
-            'notelp' => '0812312322',
-        ]);
-
         Tipembkm::create([
             'nama' => 'Magang',
         ]);

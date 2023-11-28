@@ -41,9 +41,9 @@
                                             <td>{{ $instansi->bidang }}</td>
                                             <td>
                                                 <a href="#modalEdit{{ $instansi->id }}" class="btn btn-warning"
-                                                    data-toggle="modal"><i class="fa fa-edit"></i></a>
+                                                    data-toggle="modal"><i class="icon-note"></i></a>
                                                 <a href="#modalHapus{{ $instansi->id }}" class="btn btn-danger"
-                                                    data-toggle="modal"><i class="fa fa-trash"></i></a>
+                                                    data-toggle="modal"><i class="icon-trash"></i></a>
                                             </td>
                                             <!-- Add other table cells as needed -->
                                         </tr>
