@@ -22,6 +22,8 @@ return new class extends Migration
             $table->date('tanggal_terbit');
             $table->string('halaman', 20)->nullable();
             $table->string('url')->nullable();
+            $table->text('desc')->nullable();
+            $table->text('abstrak')->nullable();
             $table->string('sk')->nullable();
             $table->string('foto_kegiatan')->nullable();
             $table->string('surat_tugas')->nullable();

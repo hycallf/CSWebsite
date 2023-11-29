@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\PublikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,9 @@ Route::resource('supervisor', SupervisorController::class);
 
 // CRUD MATAKULIAH
 Route::resource('matakuliah', MatakuliahController::class);
+
+// CRUD PUBLIKASI
+Route::resource('publikasi', PublikasiController::class);
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
 // Route::post('/login', [LoginController::class, 'authenticate']);
