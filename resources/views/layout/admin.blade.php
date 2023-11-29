@@ -284,11 +284,31 @@
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-people menu-icon"></i><span class="nav-text">Master</span>
+                            <i class="icon-people menu-icon"></i><span class="nav-text">Data Civitas Akademi</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./layout-blank.html">Mahasiswa</a></li>
-                            <li><a href="./layout-one-column.html">Dosen</a></li>
+                            <li><a href="mahasiswa">Mahasiswa</a></li>
+                            <li><a href="dosen">Dosen</a></li>
+                            <li><a href="user">User</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Publikasi</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="publikasi_mahasiswa">Publikasi - Mahasiswa</a></li>
+                            <li><a href="publikasi_dosen">Publikasi - Dosen</a></li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-trophy menu-icon"></i><span class="nav-text">MBKM</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="jenis_mbkm">Jenis MBKM</a></li>
+                            <li><a href="instansi">Instansi</a></li>
+                            <li><a href="supervisor">Supervisor</a></li>
                         </ul>
                     </li>
                 </ul>
