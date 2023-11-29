@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('publikasi_dosen', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('publication_id');
-            $table->unsignedBigInteger('dosen_id');
+            $table->string('dosen_id');
             $table->timestamps();
 
             $table->foreign('publication_id')->references('id')->on('publikasi')->onDelete('cascade');
-            $table->foreign('dosen_id')->references('nim')->on('dosen')->onDelete('cascade');
+            $table->foreign('dosen_id')->references('nidp')->on('dosen')->onDelete('cascade');
         });
     }
 
