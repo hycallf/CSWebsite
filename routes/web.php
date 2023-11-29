@@ -10,6 +10,7 @@ use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,9 @@ Route::resource('supervisor', SupervisorController::class);
 // Route::put('/supervisor/update/{id_supervisor}', [SupervisorController::class, 'update']);
 // Route::delete('/supervisor/destroy/{id_supervisor}', [SupervisorController::class, 'destroy']);
 
+
+// CRUD MATAKULIAH
+Route::resource('matakuliah', MatakuliahController::class);
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
 // Route::post('/login', [LoginController::class, 'authenticate']);

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('matakuliah', function (Blueprint $table) {
             $table->string('id_matkul', 50)->primary();
-            $table->string('nama_matkul');
+            $table->string('nama');
             $table->integer('sks');
             $table->timestamps();
         });

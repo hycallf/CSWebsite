@@ -165,7 +165,7 @@
 
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea class="form-control" name="alamat" rows="3" value="{{ $mhs->alamat }}"></textarea>
+                                <textarea class="form-control" name="alamat" rows="3">{{ $mhs->alamat }}</textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
