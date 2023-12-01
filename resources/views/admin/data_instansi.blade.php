@@ -67,7 +67,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('instansi.store', $instansi->id) }}">
+                <form method="POST" action="{{ route('instansi.store') }}">
                     @csrf
                     <div class="modal-body">
 

@@ -21,6 +21,8 @@
     <link href="theme/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
     <link href="theme/css/style.css" rel="stylesheet">
+    {{-- Summernote --}}
+    <link href="theme/plugins/summernote/dist/summernote.css" rel="stylesheet">
 
 </head>
 
@@ -29,14 +31,14 @@
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3"
                     stroke-miterlimit="10" />
             </svg>
         </div>
-    </div>
+    </div> --}}
     <!--*******************
         Preloader end
     ********************-->
@@ -215,19 +217,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="icons dropdown d-none d-md-flex">
-                            <a href="javascript:void(0)" class="log-user" data-toggle="dropdown">
-                                <span>English</span> <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
-                            </a>
-                            <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li><a href="javascript:void()">English</a></li>
-                                        <li><a href="javascript:void()">Dutch</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                                 <span class="activity active"></span>
@@ -240,18 +230,9 @@
                                             <a href="app-profile.html"><i class="icon-user"></i>
                                                 <span>Profile</span></a>
                                         </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <i class="icon-envelope-open"></i> <span>Inbox</span>
-                                                <div class="badge gradient-3 badge-pill gradient-1">3</div>
-                                            </a>
-                                        </li>
 
                                         <hr class="my-2">
-                                        <li>
-                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock
-                                                    Screen</span></a>
-                                        </li>
+
                                         <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a>
                                         </li>
                                     </ul>
@@ -274,22 +255,21 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        <a class="has-arrow" href="dashboard" aria-expanded="false"
+                            class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                            <i class="icon-speedometer menu-icon "></i><span class="nav-text">Dashboard</span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./index.html">Home 1</a></li>
-                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                        </ul>
+
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-people menu-icon"></i><span class="nav-text">Data Civitas Akademi</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="mahasiswa">Mahasiswa</a></li>
-                            <li><a href="dosen">Dosen</a></li>
-                            <li><a href="user">User</a></li>
+                            <li><a href="mahasiswa"
+                                    class="{{ Request::is('mahasiswa') ? 'active' : '' }}">Mahasiswa</a></li>
+                            <li><a href="dosen" class="{{ Request::is('dosen') ? 'active' : '' }}">Dosen</a></li>
+                            <li><a href="user" class="{{ Request::is('user') ? 'active' : '' }}">User</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -297,8 +277,10 @@
                             <i class="icon-notebook menu-icon"></i><span class="nav-text">Publikasi</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="publikasi_mahasiswa">Publikasi - Mahasiswa</a></li>
-                            <li><a href="publikasi_dosen">Publikasi - Dosen</a></li>
+                            <li><a href="publikasi" class="{{ Request::is('publikasi') ? 'active' : '' }}">Publikasi -
+                                    Mahasiswa</a></li>
+                            <li><a href="publikasi" class="{{ Request::is('publikasi') ? 'active' : '' }}">Publikasi -
+                                    Dosen</a></li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -306,9 +288,12 @@
                             <i class="icon-trophy menu-icon"></i><span class="nav-text">MBKM</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="jenis_mbkm">Jenis MBKM</a></li>
-                            <li><a href="instansi">Instansi</a></li>
-                            <li><a href="supervisor">Supervisor</a></li>
+                            <li><a href="tipe_mbkm" class="{{ Request::is('tipe_mbkm') ? 'active' : '' }}">Jenis
+                                    MBKM</a></li>
+                            <li><a href="instansi" class="{{ Request::is('instansi') ? 'active' : '' }}">Instansi</a>
+                            </li>
+                            <li><a href="supervisor"
+                                    class="{{ Request::is('supervisor') ? 'active' : '' }}">Supervisor</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -382,7 +367,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-
+    {{-- Form Editor --}}
+    <script src="theme/plugins/summernote/dist/summernote.min.js"></script>
+    <script src="theme/plugins/summernote/dist/summernote-init.js"></script>
 
     <script src="theme/js/dashboard/dashboard-1.js"></script>
 
