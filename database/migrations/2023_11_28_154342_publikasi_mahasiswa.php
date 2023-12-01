@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('mahasiswa_id');
             $table->timestamps();
 
-            $table->foreign('publication_id')->references('id')->on('publikasi')->onDelete('cascade');
-            $table->foreign('mahasiswa_id')->references('nim')->on('mahasiswa')->onDelete('cascade');
+            $table->foreign('publication_id')->references('id')->on('publikasi')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('mahasiswa_id')->references('nim')->on('mahasiswa')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -21,20 +21,6 @@
                             data-target="#modalCreate">Tambah
                             Data</button>
 
-
-                        {{-- <div class="row">
-                                <div class="col-8">
-
-                                        <h3>Publikasi</h3>
-
-                                </div>
-                                <div class="col-4">
-                                    <div class="card">
-                                        <h3>Aksi</h3>
-                                    </div>
-                                </div>
-                            </div> --}}
-
                         @foreach ($data_publikasi as $mk)
                             <div class="row border-3">
                                 <div class="col-12">
@@ -110,6 +96,37 @@
                             <div class="summernote form-control" name="abstrak" aria-placeholder="Ketik Deskripsi jurnal">
                             </div>
                         </div>
+
+                        <div class="form-group" id="mahasiswas-container">
+                            <label for="mahasiswas">Mahasiswa yang berkontribusi :</label>
+                            <div id="mahasiswas">
+                                <!-- Initial select field for Mahasiswas -->
+                                <select class="form-control mb-2" name="mahasiswas[]" required>
+                                    <option value="">Select Mahasiswa</option>
+                                    @foreach ($mahasiswas as $mahasiswa)
+                                        <option value="{{ $mahasiswa->nim }}">{{ $mahasiswa->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="addMahasiswaField()">Add
+                                Mahasiswa</button>
+                        </div>
+
+                        <div class="form-group mt-3" id="dosens-container">
+                            <label for="dosens">Dosen yang berkontribusi :</label>
+                            <div id="dosens">
+                                <!-- Initial select field for Mahasiswas -->
+                                <select class="form-control mb-2" name="dosens[]" required>
+                                    <option value="">Select Mahasiswa</option>
+                                    @foreach ($dosens as $dosen)
+                                        <option value="{{ $dosen->nidp }}">{{ $dosen->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="addDosenField()">Add
+                                Dosen</button>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -184,4 +201,154 @@
             </div>
         </div>
     @endforeach --}}
+
+    <script>
+        // Create arrays to store selected Mahasiswas and Dosens
+        var selectedMahasiswas = [];
+        var selectedDosens = [];
+
+        function updateSelectedMahasiswas() {
+            // Reset the array each time a selection changes
+            selectedMahasiswas = [];
+
+            // Iterate through all selected Mahasiswas and add their values to the array
+            var selectedOptions = document.querySelectorAll('#mahasiswas select');
+            selectedOptions.forEach(function(select) {
+                selectedMahasiswas.push(select.value);
+            });
+        }
+
+        function updateSelectedDosens() {
+            // Reset the array each time a selection changes
+            selectedDosens = [];
+
+            // Iterate through all selected Dosens and add their values to the array
+            var selectedOptions = document.querySelectorAll('#dosens select');
+            selectedOptions.forEach(function(select) {
+                selectedDosens.push(select.value);
+            });
+        }
+
+        function addMahasiswaField() {
+            // Call the update function to refresh the selected Mahasiswas array
+            updateSelectedMahasiswas();
+
+            var container = document.getElementById('mahasiswas');
+
+            // Create a container div for the select and remove button
+            var fieldContainer = document.createElement('div');
+            fieldContainer.className = 'row mb-2'; // Added a Bootstrap row class
+
+            var selectContainer = document.createElement('div');
+            selectContainer.className = 'col-md-10'; // Adjusted column size
+            var select = document.createElement('select');
+            select.className = 'form-control';
+            select.name = 'mahasiswas[]';
+            select.required = true;
+
+            var option = document.createElement('option');
+            option.value = '';
+            option.text = 'Select Mahasiswa';
+            select.appendChild(option);
+
+            @foreach ($mahasiswas as $mahasiswa)
+                // Check if the Mahasiswa is already selected
+                if (!selectedMahasiswas.includes('{{ $mahasiswa->nim }}')) {
+                    option = document.createElement('option');
+                    option.value = '{{ $mahasiswa->nim }}';
+                    option.text = '{{ $mahasiswa->nama }}';
+                    select.appendChild(option);
+                }
+            @endforeach
+
+            // Append the onchange event to the select element
+            select.onchange = updateSelectedMahasiswas;
+
+            // Append the select to the container div
+            selectContainer.appendChild(select);
+
+            // Add a "Remove" button with the 'x' icon
+            var removeButtonContainer = document.createElement('div');
+            removeButtonContainer.className = 'col-md-2'; // Adjusted column size
+            var removeButton = document.createElement('button');
+            removeButton.innerHTML = '<i class="icon-close"></i>';
+            removeButton.className = 'btn btn-danger remove-btn';
+            removeButton.type = 'button';
+            removeButton.onclick = function() {
+                container.removeChild(fieldContainer);
+                updateSelectedMahasiswas();
+            };
+
+            // Append the remove button to the container div
+            removeButtonContainer.appendChild(removeButton);
+
+            // Append the select and remove button containers to the main container
+            fieldContainer.appendChild(selectContainer);
+            fieldContainer.appendChild(removeButtonContainer);
+
+            // Append the container div to the main container
+            container.appendChild(fieldContainer);
+        }
+
+        function addDosenField() {
+            // Call the update function to refresh the selected Dosens array
+            updateSelectedDosens();
+
+            var container = document.getElementById('dosens');
+
+            // Create a container div for the select and remove button
+            var fieldContainer = document.createElement('div');
+            fieldContainer.className = 'row mb-2'; // Added a Bootstrap row class
+
+            var selectContainer = document.createElement('div');
+            selectContainer.className = 'col-md-10'; // Adjusted column size
+            var select = document.createElement('select');
+            select.className = 'form-control';
+            select.name = 'dosens[]';
+            select.required = true;
+
+            var option = document.createElement('option');
+            option.value = '';
+            option.text = 'Select Dosen';
+            select.appendChild(option);
+
+            @foreach ($dosens as $dosen)
+                // Check if the Dosen is already selected
+                if (!selectedDosens.includes('{{ $dosen->nidp }}')) {
+                    option = document.createElement('option');
+                    option.value = '{{ $dosen->nidp }}';
+                    option.text = '{{ $dosen->nama }}';
+                    select.appendChild(option);
+                }
+            @endforeach
+
+            // Append the onchange event to the select element
+            select.onchange = updateSelectedDosens;
+
+            // Append the select to the container div
+            selectContainer.appendChild(select);
+
+            // Add a "Remove" button with the 'x' icon
+            var removeButtonContainer = document.createElement('div');
+            removeButtonContainer.className = 'col-md-2'; // Adjusted column size
+            var removeButton = document.createElement('button');
+            removeButton.innerHTML = '<i class="icon-close"></i>';
+            removeButton.className = 'btn btn-danger remove-btn';
+            removeButton.type = 'button';
+            removeButton.onclick = function() {
+                container.removeChild(fieldContainer);
+                updateSelectedDosens();
+            };
+
+            // Append the remove button to the container div
+            removeButtonContainer.appendChild(removeButton);
+
+            // Append the select and remove button containers to the main container
+            fieldContainer.appendChild(selectContainer);
+            fieldContainer.appendChild(removeButtonContainer);
+
+            // Append the container div to the main container
+            container.appendChild(fieldContainer);
+        }
+    </script>
 @endsection

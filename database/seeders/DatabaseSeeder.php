@@ -89,5 +89,7 @@ class DatabaseSeeder extends Seeder
         Tipembkm::create([
             'nama' => 'Studi Independen',
         ]);
+
+        $this->call(PublikasiSeeder::class);
     }
 }

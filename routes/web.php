@@ -76,6 +76,7 @@ Route::resource('matakuliah', MatakuliahController::class);
 
 // CRUD PUBLIKASI
 Route::resource('publikasi', PublikasiController::class);
+
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
 // Route::post('/login', [LoginController::class, 'authenticate']);

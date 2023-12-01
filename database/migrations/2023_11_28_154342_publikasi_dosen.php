@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('dosen_id');
             $table->timestamps();
 
-            $table->foreign('publication_id')->references('id')->on('publikasi')->onDelete('cascade');
-            $table->foreign('dosen_id')->references('nidp')->on('dosen')->onDelete('cascade');
+            $table->foreign('publication_id')->references('id')->on('publikasi')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('dosen_id')->references('nidp')->on('dosen')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

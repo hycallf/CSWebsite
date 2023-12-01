@@ -11,4 +11,14 @@ class Publikasi extends Model
     protected $table = 'publikasi';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function mahasiswas()
+    {
+        return $this->belongsToMany(Mahasiswa::class, 'publikasi_mahasiswa');
+    }
+
+    public function dosens()
+    {
+        return $this->belongsToMany(Dosen::class, 'publikasi_dosen');
+    }
 }
