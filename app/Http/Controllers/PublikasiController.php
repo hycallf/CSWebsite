@@ -42,67 +42,62 @@ class PublikasiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'mahasiswa' => 'array',
-            'dosen' => 'array',
+            'judul' => 'required',
+            'penerbit' => 'required',
+            'jurnal' => 'required',
+            'tanggal_terbit' => 'required',
+            'mahasiswas' => 'array',
+            'dosens' => 'array',
         ]);
 
         $publication = Publikasi::create([
+            'judul' => $request->judul,
+            'penerbit' => $request->penerbit,
+            'jurnal' => $request->jurnal,
+            'tanggal_terbit' => $request->tanggal_terbit,
+            'halaman' => $request->halaman,
+            'volume' => $request->volume,
+            'url'   => $request->url,
+        ]);
+
+        $publication->mahasiswas()->attach($request->mahasiswas);
+        $publication->dosens()->attach($request->dosens);
+
+        Alert::success('Success', 'Berhasil menambah data publikasi');
+        return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+        $publication = Publikasi::find($id);
+        $publication->mahasiswas()->detach();
+        $publication->dosens()->detach();
+        $publication->delete();
+
+        Alert::success('Success', 'Berhasil menghapus data publikasi');
+        return redirect()->back();
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'penerbit' => 'required',
+            'jurnal' => 'required',
+            'tanggal_terbit' => 'required',
+            'mahasiswas' => 'array',
+            'dosens' => 'array',
+        ]);
+
+        $publication = Publikasi::find($id);
+
+        $publication->update([
             'title' => $request->title,
             'content' => $request->content,
         ]);
 
-        $publication->mahasiswa()->attach($request->mahasiswa);
-        $publication->dosen()->attach($request->dosen);
-
-        return redirect()->route('publications.index')->with('success', 'Publikasi created successfully');
+        $publication->mahasiswas()->sync($request->mahasiswas);
+        $publication->dosens()->sync($request->dosens);
     }
 
-    // public function show($id)
-    // {
-    //     $publication = Publikasi::find($id);
-    //     return view('publications.show', compact('publication'));
-    // }
-
-    // public function edit($id)
-    // {
-    //     $publication = Publikasi::find($id);
-    //     $mahasiswa = Mahasiswa::all();
-    //     $dosen = Dosen::all();
-
-    //     return view('publications.edit', compact('publication', 'mahasiswa', 'dosen'));
-    // }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'title' => 'required',
-    //         'content' => 'required',
-    //         'mahasiswa' => 'array',
-    //         'dosen' => 'array',
-    //     ]);
-
-    //     $publication = Publikasi::find($id);
-
-    //     $publication->update([
-    //         'title' => $request->title,
-    //         'content' => $request->content,
-    //     ]);
-
-    //     $publication->mahasiswa()->sync($request->mahasiswa);
-    //     $publication->dosen()->sync($request->dosen);
-
-    //     return redirect()->route('publications.index')->with('success', 'Publikasi updated successfully');
-    // }
-
-    // public function destroy($id)
-    // {
-    //     $publication = Publikasi::find($id);
-    //     $publication->mahasiswa()->detach();
-    //     $publication->dosen()->detach();
-    //     $publication->delete();
-
-    //     return redirect()->route('publications.index')->with('success', 'Publikasi deleted successfully');
-    // }
 }

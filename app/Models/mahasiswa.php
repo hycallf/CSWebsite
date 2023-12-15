@@ -15,15 +15,14 @@ class Mahasiswa extends Model
 
     public static $statuses = [
         'aktif' => 'Aktif',
-        'gapyear' => 'Gap Year',
+        'cuti' => 'Cuti',
         'alumni' => 'Alumni',
-        'dropout' => 'Drop Out',
-        // Add other statuses as needed
+        'keluar' => 'Keluar',
     ];
 
     public function user()
     {
-        return $this->hasOne(User::class, 'mahasiswa_nim', 'nim');
+        return $this->hasOne(User::class);
     }
 
     public function publikasi()

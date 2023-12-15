@@ -1,6 +1,9 @@
 @extends('layout.admin')
 
 @section('content')
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <div class="row page-titles mx-0">
         <div class="col p-md-0">
             <ol class="breadcrumb">
@@ -17,44 +20,64 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">{{ $title }}</h4>
-                        <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
-                            data-target="#modalCreate">Tambah
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Tambah
                             Data</button>
-
-                        @foreach ($data_publikasi as $mk)
-                            <div class="row border-3">
-                                <div class="col-12">
-                                    <div class="card mb-4 border-1">
-                                        <div class="row no-gutters">
-                                            <!-- Image container (left side) -->
-                                            <div class="col-md-4">
-                                                <img src="theme/images/profile/3.jpg" class="card-img image-fluid"
-                                                    style="height: 100%;">
-                                            </div>
-                                            <!-- Description container (right side) -->
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title mb-3">{{ $mk->judul }}</h5>
-                                                    <h6 class="card-subtitle text-muted mb-2">Jurnal :
-                                                        {{ $mk->jurnal }}
-                                                    </h6>
-                                                    <h6 class="card-subtitle mb-3 text-muted">Penerbit : {{ $mk->penerbit }}
-                                                    </h6>
-                                                    <p class="card-text">{{ $mk->desc }}</p>
-                                                </div>
-
-                                                <div class="card-footer">
-                                                    <a href="#modalEdit{{ $mk->id }}" class="btn btn-warning"
-                                                        data-toggle="modal"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a href="#modalHapus{{ $mk->id }}" class="btn btn-danger"
-                                                        data-toggle="modal"><i class="fa fa-trash"> Delete</i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Judul</th>
+                                        <th>Jurnal</th>
+                                        <th>Penerbit</th>
+                                        <th>Mahasiswa</th>
+                                        <th>Dosen</th>
+                                        <th>Volume</th>
+                                        <th>Tanggal Terbit</th>
+                                        <th>Halaman</th>
+                                        <th>URL</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data_publikasi as $item)
+                                        <tr>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->judul }}</td>
+                                            <td>{{ $item->jurnal }}</td>
+                                            <td>{{ $item->penerbit }}</td>
+                                            <td>
+                                                <ul>
+                                                    @foreach ($item->mahasiswas as $mahasiswa)
+                                                        <li>{{ $mahasiswa->nama }}</li>
+                                                        <br>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    @foreach ($item->dosens as $dosen)
+                                                        <li>{{ $dosen->nama }}</li>
+                                                        <br>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>{{ $item->volume }}</td>
+                                            <td>{{ $item->tanggal_terbit }}</td>
+                                            <td>{{ $item->halaman }}</td>
+                                            <td>{{ $item->url }}</td>
+                                            <td>
+                                                <a href="#modalEdit{{ $item->id }}" class="btn btn-warning"
+                                                    data-toggle="modal"><i class="fa fa-edit"></i></a>
+                                                <a href="#modalHapus{{ $item->id }}" class="btn btn-danger"
+                                                    data-toggle="modal"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                            <!-- Add other table cells as needed -->
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,23 +101,30 @@
                             <label>Judul</label>
                             <input type="text" class="form-control" name="judul" placeholder="Judul">
                         </div>
-                        <div class="form-group">
-                            <label>Penerbit</label>
-                            <input type="text" class="form-control" name="penerbit" placeholder="Penerbit">
-                        </div>
+
                         <div class="form-group">
                             <label>Jurnal Publikasi</label>
                             <input type="text" class="form-control" name="jurnal" placeholder="Tempat Publikasi">
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
-                            <div class="summernote form-control" name="desc" aria-placeholder="Ketik Deskripsi jurnal">
-                            </div>
+                            <label>Penerbit</label>
+                            <input type="text" class="form-control" name="penerbit" placeholder="Penerbit">
                         </div>
                         <div class="form-group">
-                            <label>Abstrak</label>
-                            <div class="summernote form-control" name="abstrak" aria-placeholder="Ketik Deskripsi jurnal">
-                            </div>
+                            <label>Volume No</label>
+                            <input type="text" class="form-control" name="volume" placeholder="Volume No">
+                        </div>
+                        <div class="form-group">
+                            <label>Halaman</label>
+                            <input type="text" class="form-control" name="halaman" placeholder="Halaman">
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Terbit</label>
+                            <input id="datepicker" class="form-control" name="tanggal_terbit" placeholder="yyyy-mm-dd" />
+                        </div>
+                        <div class="form-group">
+                            <label>URL</label>
+                            <input type="text" class="form-control" name="url" placeholder="URL">
                         </div>
 
                         <div class="form-group" id="mahasiswas-container">
@@ -117,7 +147,7 @@
                             <div id="dosens">
                                 <!-- Initial select field for Mahasiswas -->
                                 <select class="form-control mb-2" name="dosens[]" required>
-                                    <option value="">Select Mahasiswa</option>
+                                    <option value="">Select Dosen</option>
                                     @foreach ($dosens as $dosen)
                                         <option value="{{ $dosen->nidp }}">{{ $dosen->nama }}</option>
                                     @endforeach
@@ -139,8 +169,8 @@
 
 
     <!-- modal edit -->
-    {{-- @foreach ($data_publikasi as $mk)
-        <div class="modal fade" id="modalEdit{{ $mk->id_matkul }}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach ($data_publikasi as $mk)
+        <div class="modal fade" id="modalEdit{{ $mk->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -148,22 +178,83 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="{{ route('publikasi.update', $mk->id_matkul) }}">
+                    <form method="POST" action="{{ route('publikasi.update', $mk->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Kode Matakuliah</label>
-                                <input type="text" class="form-control" name="id_matkul" value="{{ $mk->id_matkul }}">
+                                <label>Judul</label>
+                                <input type="text" class="form-control" name="judul" placeholder="Judul"
+                                    value="{{ $mk->judul }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Jurnal Publikasi</label>
+                                <input type="text" class="form-control" name="jurnal" placeholder="Tempat Publikasi"
+                                    value="{{ $mk->jurnal }}">
                             </div>
                             <div class="form-group">
-                                <label>Nama Matakuliah</label>
-                                <input type="text" class="form-control" name="nama" value="{{ $mk->nama }}">
+                                <label>Penerbit</label>
+                                <input type="text" class="form-control" name="penerbit" placeholder="Penerbit"
+                                    value="{{ $mk->penerbit }}">
                             </div>
                             <div class="form-group">
-                                <label>SKS</label>
-                                <input type="text" class="form-control" name="sks" value="{{ $mk->sks }}">
+                                <label>Volume No</label>
+                                <input type="text" class="form-control" name="volume" placeholder="Volume No"
+                                    value="{{ $mk->volume }}">
                             </div>
+                            <div class="form-group">
+                                <label>Halaman</label>
+                                <input type="text" class="form-control" name="halaman" placeholder="Halaman"
+                                    value="{{ $mk->halaman }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal Terbit</label>
+                                <input id="datepicker" class="form-control" name="tanggal_terbit"
+                                    placeholder="yyyy-mm-dd" value="{{ $mk->tanggal_terbit }}" />
+                            </div>
+                            <div class="form-group">
+                                <label>URL</label>
+                                <input type="text" class="form-control" name="url" placeholder="URL"
+                                    value="{{ $mk->url }}">
+                            </div>
+
+                            <div class="form-group" id="mahasiswas-container">
+                                <label for="mahasiswas">Mahasiswa yang berkontribusi :</label>
+                                <div id="mahasiswa-update">
+                                    @foreach ($mk->mahasiswas as $mhs)
+                                        <select class="form-control mb-2" name="mahasiswas[]" required>
+                                            @foreach ($mahasiswas as $value)
+                                                <option value="{{ $value }}"
+                                                    {{ $mhs->nim == $value->nim ? 'selected' : '' }}>{{ $value->nama }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    @endforeach
+                                    <!-- Initial select field for Mahasiswas -->
+
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="addMahasiswaFieldUpdate()">Add
+                                    Mahasiswa</button>
+                            </div>
+
+                            <div class="form-group mt-3" id="dosens-container">
+                                <label for="dosens">Dosen yang berkontribusi :</label>
+                                <div id="dosen-update">
+                                    @foreach ($mk->dosens as $dsn)
+                                        <select class="form-control mb-2" name="dosens[]" required>
+                                            @foreach ($dosens as $value)
+                                                <option value="{{ $value }}"
+                                                    {{ $dsn->nidp == $value->nidp ? 'selected' : '' }}>{{ $value->nama }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    @endforeach
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="addDosenFieldUpdate()">Add
+                                    Dosen</button>
+                            </div>
+
                         </div>
 
                         <div class="modal-footer">
@@ -174,11 +265,11 @@
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 
     {{-- Modal Hapus --}}
-    {{-- @foreach ($data_publikasi as $mk)
-        <div class="modal fade" id="modalHapus{{ $mk->id_matkul }}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach ($data_publikasi as $mk)
+        <div class="modal fade" id="modalHapus{{ $mk->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -186,7 +277,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="{{ route('publikasi.destroy', $mk->id_matkul) }}">
+                    <form method="POST" action="{{ route('publikasi.destroy', $mk->id) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">
@@ -200,40 +291,68 @@
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 
     <script>
         // Create arrays to store selected Mahasiswas and Dosens
-        var selectedMahasiswas = [];
-        var selectedDosens = [];
+        var selectedMahasiswasTambah = [];
+        var selectedMahasiswasUpdate = [];
+        var selectedDosensTambah = [];
+        var selectedDosensUpdate = [];
 
-        function updateSelectedMahasiswas() {
+        function updateSelectedMahasiswas(isUpdate = false) {
             // Reset the array each time a selection changes
-            selectedMahasiswas = [];
+            if (isUpdate) {
+                selectedMahasiswasUpdate = [];
+            } else {
+                selectedMahasiswasTambah = [];
+            }
+
+            // Choose the appropriate container ID based on the modal type
+            var containerID = isUpdate ? 'mahasiswa-update' : 'mahasiswas';
+            var selectedOptions = document.querySelectorAll('#' + containerID + ' select');
 
             // Iterate through all selected Mahasiswas and add their values to the array
-            var selectedOptions = document.querySelectorAll('#mahasiswas select');
             selectedOptions.forEach(function(select) {
-                selectedMahasiswas.push(select.value);
+                if (isUpdate) {
+                    selectedMahasiswasUpdate.push(select.value);
+                } else {
+                    selectedMahasiswasTambah.push(select.value);
+                }
             });
         }
 
-        function updateSelectedDosens() {
+        function updateSelectedDosens(isUpdate = false) {
             // Reset the array each time a selection changes
-            selectedDosens = [];
+            if (isUpdate) {
+                selectedDosensUpdate = [];
+            } else {
+                selectedDosensTambah = [];
+            }
+
+            // Choose the appropriate container ID based on the modal type
+            var containerID = isUpdate ? 'dosen-update' : 'dosens';
+            var selectedOptions = document.querySelectorAll('#' + containerID + ' select');
 
             // Iterate through all selected Dosens and add their values to the array
-            var selectedOptions = document.querySelectorAll('#dosens select');
             selectedOptions.forEach(function(select) {
-                selectedDosens.push(select.value);
+                if (isUpdate) {
+                    selectedDosensUpdate.push(select.value);
+                } else {
+                    selectedDosensTambah.push(select.value);
+                }
             });
         }
 
-        function addMahasiswaField() {
+        function addMahasiswaField(isUpdate = false) {
             // Call the update function to refresh the selected Mahasiswas array
-            updateSelectedMahasiswas();
+            updateSelectedMahasiswas(isUpdate);
 
-            var container = document.getElementById('mahasiswas');
+            // Choose the appropriate container ID and selected array based on the modal type
+            var containerID = isUpdate ? 'mahasiswa-update' : 'mahasiswas';
+            var selectedMahasiswas = isUpdate ? selectedMahasiswasUpdate : selectedMahasiswasTambah;
+
+            var container = document.getElementById(containerID);
 
             // Create a container div for the select and remove button
             var fieldContainer = document.createElement('div');
@@ -262,7 +381,9 @@
             @endforeach
 
             // Append the onchange event to the select element
-            select.onchange = updateSelectedMahasiswas;
+            select.onchange = function() {
+                updateSelectedMahasiswas(isUpdate);
+            };
 
             // Append the select to the container div
             selectContainer.appendChild(select);
@@ -276,7 +397,7 @@
             removeButton.type = 'button';
             removeButton.onclick = function() {
                 container.removeChild(fieldContainer);
-                updateSelectedMahasiswas();
+                updateSelectedMahasiswas(isUpdate);
             };
 
             // Append the remove button to the container div
@@ -290,11 +411,20 @@
             container.appendChild(fieldContainer);
         }
 
-        function addDosenField() {
-            // Call the update function to refresh the selected Dosens array
-            updateSelectedDosens();
+        // Function for adding Mahasiswa fields in the update modal
+        function addMahasiswaFieldUpdate() {
+            addMahasiswaField(true);
+        }
 
-            var container = document.getElementById('dosens');
+        function addDosenField(isUpdate = false) {
+            // Call the update function to refresh the selected Mahasiswas array
+            updateSelectedDosens(isUpdate);
+
+            // Choose the appropriate container ID and selected array based on the modal type
+            var containerID = isUpdate ? 'dosen-update' : 'dosens';
+            var selectedDosens = isUpdate ? selectedDosensUpdate : selectedDosensTambah;
+
+            var container = document.getElementById(containerID);
 
             // Create a container div for the select and remove button
             var fieldContainer = document.createElement('div');
@@ -350,5 +480,14 @@
             // Append the container div to the main container
             container.appendChild(fieldContainer);
         }
+
+        function addDosenFieldUpdate() {
+            addDosenField(true);
+        }
+
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd'
+        });
     </script>
 @endsection
