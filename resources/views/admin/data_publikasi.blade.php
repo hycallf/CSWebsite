@@ -134,7 +134,8 @@
                                 <select class="form-control mb-2" name="mahasiswas[]" required>
                                     <option value="">Select Mahasiswa</option>
                                     @foreach ($mahasiswas as $mahasiswa)
-                                        <option value="{{ $mahasiswa->nim }}">{{ $mahasiswa->nama }}</option>
+                                        <option value="{{ $mahasiswa->nim }}">{{ $mahasiswa->nama }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -226,7 +227,8 @@
                                         <select class="form-control mb-2" name="mahasiswas[]" required>
                                             @foreach ($mahasiswas as $value)
                                                 <option value="{{ $value }}"
-                                                    {{ $mhs->nim == $value->nim ? 'selected' : '' }}>{{ $value->nama }}
+                                                    {{ $mhs->nim == $value->nim ? 'selected' : '' }}>
+                                                    {{ $value->nama }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -379,6 +381,10 @@
                     select.appendChild(option);
                 }
             @endforeach
+
+
+
+
 
             // Append the onchange event to the select element
             select.onchange = function() {

@@ -15,8 +15,6 @@ class PublikasiController extends Controller
         $publikasi = Publikasi::all();
         $mahasiswa = Mahasiswa::all();
         $dosen = Dosen::all();
-
-        // return dd($publikasi);
         
         return view('admin.data_publikasi', [
             'data_publikasi' => $publikasi,
@@ -25,19 +23,7 @@ class PublikasiController extends Controller
             'title' => 'Data Publikasi'
         ]);
 
-        //for createing modal confirmation
-        // $title = 'Delete Data!';
-        // $text = "Are you sure you want to delete?";
-        // confirmDelete($title, $text);
     }
-
-    // public function create()
-    // {
-    //     $mahasiswa = Mahasiswa::all();
-    //     $dosen = Dosen::all();
-
-    //     return view('publications.create', compact('mahasiswa', 'dosen'));
-    // }
 
     public function store(Request $request)
     {
