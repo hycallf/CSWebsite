@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama', 50);
             $table->string('notelp', 20)->nullable();
             $table->string('foto')->nullable();
+            $table->string('keahlian')->nullable();
             $table->timestamps();
         });
     }

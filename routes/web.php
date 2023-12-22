@@ -27,6 +27,21 @@ use App\Http\Controllers\PublikasiController;
 
 Route::get('/', function () {
     return view('/home');
+    // $config = new \Smalot\PdfParser\Config();
+    // $config->setFontSpaceLimit(-60);
+    // // $config->setIgnoreEncryption(true);
+    // $config->setHorizontalOffset('');
+    // $config->setHorizontalOffset("\t");
+    // $config->setRetainImageContent(false);
+    // $parser = new \Smalot\PdfParser\Parser([], $config);
+    // $path = storage_path('app/Docs/CV.pdf');
+    // $pdf = $parser->parseFile($path);
+    // $firstpage = $pdf->getPages()[0];
+    // $data = $firstpage->getDataTm();
+    // $text = $data[1][1];
+    // // $text = $pdf->getText();
+    // $pages = $pdf->getPages();
+    // dd($data);
 });
 // Route::get('/home', function () {
 //     return view('/home');

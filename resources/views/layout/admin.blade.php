@@ -23,6 +23,15 @@
     <link href="theme/css/style.css" rel="stylesheet">
     {{-- Summernote --}}
     <link href="theme/plugins/summernote/dist/summernote.css" rel="stylesheet">
+    {{-- DatePicker --}}
+    <link href="theme/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+        rel="stylesheet">
+    <link href="theme/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+    <!-- Daterange picker plugins css -->
+    <link href="theme/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 
 </head>
 
@@ -144,6 +153,8 @@
                                     Mahasiswa</a></li>
                             <li><a href="publikasi" class="{{ Request::is('publikasi') ? 'active' : '' }}">Publikasi -
                                     Dosen</a></li>
+                            <li><a href="publikasi" class="{{ Request::is('publikasi') ? 'active' : '' }}">Jurnal</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -235,6 +246,15 @@
     <script src="theme/plugins/summernote/dist/summernote-init.js"></script>
 
     <script src="theme/js/dashboard/dashboard-1.js"></script>
+
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="theme/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Date range Plugin JavaScript -->
+    <script src="theme/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="theme/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <script src="theme/js/plugins-init/form-pickers-init.js"></script>
+    <script src="theme/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
 </body>
 
