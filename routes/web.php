@@ -6,6 +6,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TipembkmController;
+use App\Http\Controllers\MbkmController;
 use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
@@ -73,6 +74,9 @@ Route::resource('supervisor', SupervisorController::class);
 
 // CRUD MATAKULIAH
 Route::resource('matakuliah', MatakuliahController::class);
+
+//CRUD MBKM
+Route::resource('mbkm', MbkmController::class);
 
 // CRUD PUBLIKASI
 Route::resource('publikasi', PublikasiController::class);

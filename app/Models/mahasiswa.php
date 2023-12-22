@@ -15,9 +15,9 @@ class Mahasiswa extends Model
 
     public static $statuses = [
         'aktif' => 'Aktif',
-        'gapyear' => 'Gap Year',
+        'cuti' => 'Cuti',
         'alumni' => 'Alumni',
-        'dropout' => 'Drop Out',
+        'keluar' => 'Keluar',
         // Add other statuses as needed
     ];
 
