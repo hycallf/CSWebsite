@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Nama</th>
+                                        <th>Nama Instansi</th>
                                         <th>Alamat</th>
                                         <th>Email</th>
                                         <th>Bidang Usaha</th>
@@ -99,7 +99,7 @@
 
 
     <!-- modal edit -->
-    @foreach ($data_instansi as $instansi)
+    {{-- @foreach ($data_instansi as $instansi)
         <div class="modal fade" id="modalEdit{{ $instansi->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -138,10 +138,10 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 
     {{-- Modal Hapus --}}
-    @foreach ($data_instansi as $instansi)
+    {{-- @foreach ($data_instansi as $instansi)
         <div class="modal fade" id="modalHapus{{ $instansi->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
@@ -164,5 +164,5 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 @endsection
