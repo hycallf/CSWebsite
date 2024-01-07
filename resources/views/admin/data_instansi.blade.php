@@ -26,7 +26,8 @@
                                         <th>ID</th>
                                         <th>Nama Instansi</th>
                                         <th>Alamat</th>
-                                        <th>Email</th>
+                                        <th>Kontak</th>
+                                        <th>Website</th>
                                         <th>Bidang Usaha</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -37,7 +38,8 @@
                                             <td>{{ $instansi->id }}</td>
                                             <td>{{ $instansi->nama }}</td>
                                             <td>{{ $instansi->alamat }}</td>
-                                            <td>{{ $instansi->email }}</td>
+                                            <td>{{ $instansi->kontak }}</td>
+                                            <td>{{ $instansi->website }}</td>
                                             <td>{{ $instansi->bidang }}</td>
                                             <td>
                                                 <a href="#modalEdit{{ $instansi->id }}" class="btn btn-warning"
@@ -76,8 +78,12 @@
                             <input type="text" class="form-control" name="nama" placeholder="Nama Instansi">
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" placeholder="Email">
+                            <label>Kontak</label>
+                            <input type="text" class="form-control" name="kontak" placeholder="Kontak">
+                        </div>
+                        <div class="form-group">
+                            <label>Website</label>
+                            <input type="text" class="form-control" name="website" placeholder="Website">
                         </div>
                         <div class="form-group">
                             <label>Bidang Usaha</label>
@@ -99,7 +105,7 @@
 
 
     <!-- modal edit -->
-    {{-- @foreach ($data_instansi as $instansi)
+    @foreach ($data_instansi as $instansi)
         <div class="modal fade" id="modalEdit{{ $instansi->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -117,12 +123,20 @@
                                 <input type="text" class="form-control" name="nama" value="{{ $instansi->nama }}">
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" name="email" value="{{ $instansi->email }}">
+                                <label>Kontak</label>
+                                <input type="text" class="form-control" name="kontak" placeholder="Kontak"
+                                    value="{{ $instansi->kontak }}">
                             </div>
                             <div class="form-group">
+                                <label>Website</label>
+                                <input type="text" class="form-control" name="website" placeholder="Website"
+                                    value="{{ $instansi->website }}">
+                            </div>
+
+                            <div class="form-group">
                                 <label>Bidang Usaha</label>
-                                <input type="text" class="form-control" name="bidang" value="{{ $instansi->bidang }}">
+                                <input type="text" class="form-control" name="bidang"
+                                    value="{{ $instansi->bidang }}">
                             </div>
                             <div class="form-group">
                                 <label>Alamat Instansi</label>
@@ -138,10 +152,10 @@
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 
     {{-- Modal Hapus --}}
-    {{-- @foreach ($data_instansi as $instansi)
+    @foreach ($data_instansi as $instansi)
         <div class="modal fade" id="modalHapus{{ $instansi->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
@@ -164,5 +178,5 @@
                 </div>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 @endsection

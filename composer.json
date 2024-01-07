@@ -10,9 +10,11 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
+        "laravelcollective/html": "^6.4",
         "realrashid/sweet-alert": "^7.1",
         "rtconner/laravel-tagging": "^4.1",
-        "smalot/pdfparser": "^2.7"
+        "smalot/pdfparser": "^2.7",
+        "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

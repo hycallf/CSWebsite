@@ -9,7 +9,6 @@ class Supervisor extends Model
 {
     use HasFactory;
     protected $table = 'supervisor';
-    protected $primaryKey = 'id_supervisor';
     // protected $keyType = 'string';
     protected $fillable = ['nama_supervisor', 'notelp', 'email'];
 
@@ -18,4 +17,9 @@ class Supervisor extends Model
 //     {
 //         return $this->hasOne(User::class, 'mahasiswa_nim', 'nim');
 //     }
+
+    public function mbkm()
+    {
+        return $this->hasMany(Mbkm::class);
+    }
 }

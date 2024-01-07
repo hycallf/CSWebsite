@@ -158,9 +158,10 @@
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-trophy menu-icon"></i><span class="nav-text">MBKM</span>
+                            <i class="icon-briefcase menu-icon"></i><span class="nav-text">MBKM</span>
                         </a>
                         <ul aria-expanded="false">
+                            <li><a href="mbkm" class="{{ Request::is('mbkm') ? 'active' : '' }}">MBKM</a></li>
                             <li><a href="tipe_mbkm" class="{{ Request::is('tipe_mbkm') ? 'active' : '' }}">Jenis
                                     MBKM</a></li>
                             <li><a href="instansi" class="{{ Request::is('instansi') ? 'active' : '' }}">Instansi</a>
@@ -172,7 +173,7 @@
                     <li>
                         <a class="" href="lomba" aria-expanded="false"
                             class="{{ Request::is('lomba') ? 'active' : '' }}">
-                            <i class="icon-medal menu-icon "></i><span class="nav-text">Prestasi Mahasiswa</span>
+                            <i class="icon-trophy menu-icon "></i><span class="nav-text">Prestasi Mahasiswa</span>
                         </a>
                     </li>
                 </ul>

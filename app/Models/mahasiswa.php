@@ -34,4 +34,9 @@ class Mahasiswa extends Model
     {
         return $this->belongsToMany(Lomba::class, 'lomba_mahasiswa');
     }
+
+    public function mbkm()
+    {
+        return $this->hasMany(Mbkm::class);
+    }
 }

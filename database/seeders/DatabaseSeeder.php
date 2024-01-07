@@ -82,14 +82,9 @@ class DatabaseSeeder extends Seeder
             'notelp' => '0812312322',
         ]);
 
-        Tipembkm::create([
-            'nama' => 'Magang',
-        ]);
-
-        Tipembkm::create([
-            'nama' => 'Studi Independen',
-        ]);
+        
 
         $this->call(PublikasiSeeder::class);
+        $this->call(MbkmSeeder::class);
     }
 }

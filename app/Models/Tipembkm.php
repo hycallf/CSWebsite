@@ -14,8 +14,8 @@ class Tipembkm extends Model
     protected $primaryKey = 'id';
     protected $guarded = [];
 
-    public function tipe_mbkm()
+    public function mbkm()
     {
-        return $this->belongsTo(Mbkm::class, 'id', 'tipe_mbkm');
+        return $this->hasMany(Mbkm::class);
     }
 }

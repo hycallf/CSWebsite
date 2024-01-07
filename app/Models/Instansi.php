@@ -12,5 +12,10 @@ class Instansi extends Model
     protected $primaryKey = 'id';
 
     protected $guarded = [];
+    
+    public function mbkm()
+    {
+        return $this->hasMany(Mbkm::class);
+    }
 
 }

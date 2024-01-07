@@ -11,21 +11,26 @@ class Mbkm extends Model
     protected $table = 'mbkm';
     protected $primaryKey = 'id_mbkm';
     protected $keyType = 'string';
-    protected $fillable = ['tipe_mbkm', 'id_instansi', 'nama_mbkm', 'nim_mahasiswa', 'tanggal_mulai', 'tanggal_selesai', 'posisi', 'id_supervisor', 'file_laporan'];
+    protected $guarded = [''];
 
     public function instansi()
     {
-        return $this->hasOne(Instansi::class, 'id', 'id_instansi');
+        return $this->belongsTo(Instansi::class);
     }
 
     public function tipe_mbkm()
     {
-        return $this->belongsTo(Tipembkm::class, 'tipe_mbkm', 'id');
+        return $this->belongsTo(Tipembkm::class);
     }
 
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class, 'nim_mahasiswa', 'nim');
+        return $this->hasMany(Mahasiswa::class);
+    }
+
+    public function supervisor()
+    {
+        return $this->hasMany(Supervisor::class);
     }
 
     //	id_mbkm	tipe_mbkm	id_instansi	nama_mbkm	created_at	updated_at	

@@ -16,33 +16,32 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Data Supervisor</h4>
+                        <h4 class="card-title">{{ $title }}</h4>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">Tambah
                             Data</button>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>ID Supervisor</th>
-                                        <th>Nama</th>
-                                        <th>No. Telp</th>
+                                        <th>ID</th>
+                                        <th>Nama Supervisor</th>
+                                        <th>No Telp</th>
                                         <th>Email</th>
-
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($supervisor as $item)
+                                    @foreach ($data_supervisor as $supervisor)
                                         <tr>
-                                            <td>{{ $item->id_supervisor }}</td>
-                                            <td>{{ $item->nama_supervisor }}</td>
-                                            <td>{{ $item->notelp }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            {{-- <td>{{ $item->alamat }}</td> --}}
+                                            <td>{{ $supervisor->id }}</td>
+                                            <td>{{ $supervisor->nama_supervisor }}</td>
+                                            <td>{{ $supervisor->notelp }}</td>
+                                            <td>{{ $supervisor->email }}</td>
                                             <td>
-                                                <a href="#modalEdit{{ $item->id_supervisor }}" class="btn btn-warning"
-                                                    data-toggle="modal"><i class="fa fa-edit"></i></a>
-                                                <a href="#modalHapus{{ $item->id_supervisor }}" class="btn btn-danger"
-                                                    data-toggle="modal"><i class="fa fa-trash"></i></a>
+                                                <a href="#modalEdit{{ $supervisor->id }}" class="btn btn-warning"
+                                                    data-toggle="modal"><i class="icon-note"></i></a>
+                                                <a href="#modalHapus{{ $supervisor->id }}" class="btn btn-danger"
+                                                    data-toggle="modal"><i class="icon-trash"></i></a>
                                             </td>
                                             <!-- Add other table cells as needed -->
                                         </tr>
@@ -95,8 +94,7 @@
 
     <!-- modal edit -->
     @foreach ($data_supervisor as $supervisor)
-        <div class="modal fade" id="modalEdit{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog"
-            aria-hidden="true">
+        <div class="modal fade" id="modalEdit{{ $supervisor->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -104,7 +102,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="{{ route('supervisor.update', $supervisor->id_supervisor) }}">
+                    <form method="POST" action="{{ route('supervisor.update', $supervisor->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
@@ -138,8 +136,7 @@
 
     <!-- modal hapus -->
     @foreach ($data_supervisor as $supervisor)
-        <div class="modal fade" id="modalHapus{{ $supervisor->id_supervisor }}" tabindex="-1" role="dialog"
-            aria-hidden="true">
+        <div class="modal fade" id="modalHapus{{ $supervisor->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -147,7 +144,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="{{ route('supervisor.destroy', $supervisor->id_supervisor) }}">
+                    <form method="POST" action="{{ route('supervisor.destroy', $supervisor->id) }}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-body">

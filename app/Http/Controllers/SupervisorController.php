@@ -84,7 +84,6 @@ class SupervisorController extends Controller
         
         return view('admin.data_supervisor', [
             'data_supervisor' => $supervisor,
-            'supervisor' => $supervisor,
             'title' => 'Data Supervisor'
         ]);
 
@@ -104,9 +103,9 @@ class SupervisorController extends Controller
 
     }
 
-    public function update(Request $request, String $id_supervisor) : RedirectResponse
+    public function update(Request $request, $id_supervisor)
     {
-        $supervisor = Supervisor::where('id_supervisor', $id_supervisor)->first();
+        $supervisor = Supervisor::where('id', $id_supervisor)->first();
 
         if ($supervisor) {
             $supervisor->update([
@@ -125,7 +124,7 @@ class SupervisorController extends Controller
 
     public function destroy(String $id_supervisor)
     {
-        $supervisor = Supervisor::where('id_supervisor', $id_supervisor)->first();
+        $supervisor = Supervisor::where('id', $id_supervisor)->first();
 
     if ($supervisor) {
         // Delete the record

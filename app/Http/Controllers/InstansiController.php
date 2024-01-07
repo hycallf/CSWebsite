@@ -36,14 +36,14 @@ class InstansiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) : RedirectResponse
+    public function store(Request $request)
     {
         
         Instansi::create([
-            'id' => $request->id,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
-            'email' => $request->email,
+            'kontak' => $request->kontak,
+            'website' => $request->website,
             'bidang' => $request->bidang,
         ]);
 
@@ -74,7 +74,7 @@ class InstansiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, String $id) : RedirectResponse
+    public function update(Request $request, String $id)
     {
         $dsn = Instansi::where('id', $id)->first();
 
@@ -82,7 +82,8 @@ class InstansiController extends Controller
             $dsn->update([
                 'nama' => $request->nama,
                 'alamat' => $request->alamat,
-                'email' => $request->email,
+                'kontak' => $request->kontak,
+                'website' => $request->website,
                 'bidang' => $request->bidang,
             ]);
 
