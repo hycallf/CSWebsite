@@ -46,6 +46,9 @@ Route::resource('publikasi', PublikasiController::class);
 Route::resource('lomba', LombaController::class);
 Route::resource('mbkm', MbkmController::class);
 
+Route::resource('mbkm', MbkmController::class);
+
+
 // Route::get('/fetch-data', [PublikasiController::class, 'fetchData']);
 // auth
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
