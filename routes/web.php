@@ -12,6 +12,7 @@ use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\PublikasiController;
 use App\Http\Controllers\LombaController;
+use App\Http\Controllers\MbkmController;
 
 
 Route::get('/', function () {
@@ -43,6 +44,9 @@ Route::resource('matakuliah', MatakuliahController::class);
 Route::resource('publikasi', PublikasiController::class);
 // CRUD LOMBA
 Route::resource('lomba', LombaController::class);
+
+Route::resource('mbkm', MbkmController::class);
+
 
 // Route::get('/fetch-data', [PublikasiController::class, 'fetchData']);
 // auth
