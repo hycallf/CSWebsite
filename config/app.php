@@ -169,6 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        \Conner\Tagging\Providers\TaggingServiceProvider::class,
 
     ])->toArray(),
 

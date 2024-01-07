@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Publikasi extends Model
 {
     use HasFactory;
+    use \Conner\Tagging\Taggable;
     protected $table = 'publikasi';
     protected $primaryKey = 'id';
     protected $guarded = [];

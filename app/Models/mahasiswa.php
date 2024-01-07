@@ -29,4 +29,9 @@ class Mahasiswa extends Model
     {
         return $this->belongsToMany(Publikasi::class, 'publikasi_mahasiswa');
     }
+
+    public function lomba()
+    {
+        return $this->belongsToMany(Lomba::class, 'lomba_mahasiswa');
+    }
 }

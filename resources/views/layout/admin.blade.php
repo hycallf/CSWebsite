@@ -127,11 +127,10 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
                     <li>
-                        <a class="has-arrow" href="dashboard" aria-expanded="false"
+                        <a class="" href="dashboard" aria-expanded="false"
                             class="{{ Request::is('dashboard') ? 'active' : '' }}">
                             <i class="icon-speedometer menu-icon "></i><span class="nav-text">Dashboard</span>
                         </a>
-
                     </li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -169,6 +168,12 @@
                             <li><a href="supervisor"
                                     class="{{ Request::is('supervisor') ? 'active' : '' }}">Supervisor</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a class="" href="lomba" aria-expanded="false"
+                            class="{{ Request::is('lomba') ? 'active' : '' }}">
+                            <i class="icon-medal menu-icon "></i><span class="nav-text">Prestasi Mahasiswa</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -255,6 +260,12 @@
 
     <script src="theme/js/plugins-init/form-pickers-init.js"></script>
     <script src="theme/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <script>
+        $('.datepicker').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd'
+        });
+    </script>
 
 </body>
 

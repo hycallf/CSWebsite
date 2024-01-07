@@ -9,6 +9,11 @@ use App\Models\Dosen;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Symfony\Component\Mime\Email;
+use Illuminate\Support\Facades\View;
+use App\Mail\SendEmail;
 
 class userController extends Controller
 {
@@ -37,26 +42,17 @@ class userController extends Controller
             'title' => 'Data User'
         ]);
 
-        //for createing modal confirmation
-        // $title = 'Delete Data!';
-        // $text = "Are you sure you want to delete?";
-        // confirmDelete($title, $text);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
-    }
+        $sendData = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'subject' => 'Selamat '.$request->name.'! Akun Anda telah berhasil didaftarkan',
+        ];
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) : RedirectResponse
-    {
-        
         User::create([
             'username' => $request->username,
             'name' => $request->name,
@@ -65,44 +61,30 @@ class userController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        $userEmail = $request->input('email');
+        $subject = 'Selamat! Akun Anda telah berhasil didaftarkan';
+   
+        $this->sendUserRegistrationEmail($userEmail, $sendData);
+
+
         Alert::success('Success', 'Berhasil menambah data user');
         return redirect()->back();
 
-        // dd($request->all());
-
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show()
-    {
-        // $user = User::all();
-        // return view('admin.data_user', compact('user'));
+    private function sendUserRegistrationEmail($email, $sendData){
+        $emailMessage = (new SendEmail($sendData));
 
-        
+        // Send the email
+        Mail::to($email)->send($emailMessage);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, String $username) : RedirectResponse
     {
         $dsn = User::where('username', $username)->first();
 
         if ($dsn) {
             $dsn->update([
-                // 'username' => $request->username,
-                // 'name' => $request->name,
-                // 'role' => $request->role,
                 'email' => $request->email,
             ]);
 

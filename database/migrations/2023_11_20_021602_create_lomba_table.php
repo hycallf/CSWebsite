@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lomba', function (Blueprint $table) {
-            $table->integer('id_lomba', true);
+            $table->id();
             $table->string('nama_kegiatan');
             $table->string('penyelenggara', 50);
             $table->date('waktu_pelaksanaan');
-            $table->string('tingkat_pengakuan', 50);
+            $table->enum('tingkat_pengakuan', ['internasional', 'nasional', 'provinsi', 'wilayah']);
             $table->string('capaian_prestasi', 50);
+            $table->string('foto_kegiatan', 50);
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });
