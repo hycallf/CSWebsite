@@ -67,7 +67,8 @@
                     <b class="logo-abbr"><img src="theme/images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="./theme/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="theme/images/logo-text.png" alt="">
+                        {{-- <img src="images/EBSCS1.png" width="50%" height="50%"> --}}
+                        <h2 class="text-white text-center">CSWebsite</h2>
                     </span>
                 </a>
             </div>

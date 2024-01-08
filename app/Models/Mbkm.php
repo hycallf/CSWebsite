@@ -11,11 +11,8 @@ class Mbkm extends Model
     protected $table = 'mbkm';
     protected $primaryKey = 'id_mbkm';
     protected $keyType = 'string';
-<<<<<<< HEAD
+
     protected $guarded = [''];
-=======
-    protected $fillable = ['tipe_mbkm', 'id_instansi', 'nama_mbkm', 'nim_mahasiswa', 'posisi', 'id_supervisor', 'file_laporan', 'tanggal_mulai', 'tanggal_selesai'];
->>>>>>> 50e0510ce5e48ff34e656d78e03ed664a7f696ea
 
     public function instansi()
     {

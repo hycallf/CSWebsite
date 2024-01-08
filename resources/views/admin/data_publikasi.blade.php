@@ -214,7 +214,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Terbit</label>
-                                <input id="datepicker" class="form-control" name="tanggal_terbit"
+                                <input id="datepicker" class="form-control datepicker" name="tanggal_terbit"
                                     placeholder="yyyy-mm-dd" value="{{ $mk->tanggal_terbit }}" />
                             </div>
                             <div class="form-group">
@@ -226,17 +226,6 @@
                             <div class="form-group" id="mahasiswas-container">
                                 <label for="mahasiswas">Mahasiswa yang berkontribusi :</label>
                                 <div id="mahasiswa-update">
-                                    {{-- @foreach ($mk->mahasiswas as $mhs)
-                                        <select class="form-control mb-2" name="mahasiswas[]" required>
-                                            @foreach ($mahasiswas as $value)
-                                                <option value="{{ $value }}"
-                                                    {{ $mhs->nim == $value->nim ? 'selected' : '' }}>
-                                                    {{ $value->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    @endforeach --}}
-                                    <!-- Initial select field for Mahasiswas -->
 
                                     <select class="form-control mb-2" name="mahasiswas[]" required>
                                         <option value="">Select Mahasiswa</option>
