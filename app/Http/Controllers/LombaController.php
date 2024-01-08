@@ -88,7 +88,7 @@ class LombaController extends Controller
             'tanggal' => 'required',
             'pengakuan' => 'required',
             'capaian' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'mahasiswas' => 'array',
         ]);
 
@@ -96,22 +96,22 @@ class LombaController extends Controller
 
         if ($Lomba) {
             // Mengambil file gambar dari request
-            $image = $request->file('foto');
+            // $image = $request->file('foto');
 
-            // Tentukan nama baru untuk file gambar (contoh: timestamp + nama asli)
-            $fileName =  $request->tanggal . '_' . $request->nama .'.'.$image->getClientOriginalExtension();
+            // // Tentukan nama baru untuk file gambar (contoh: timestamp + nama asli)
+            // $fileName =  $request->tanggal . '_' . $request->nama .'.'.$image->getClientOriginalExtension();
 
-            // Menyimpan gambar ke penyimpanan yang ditentukan
-            // $path = $image->store('images', $newName, 'public');
-            $image->move('images/prestasi', $fileName);
-            $path = 'images/prestasi/' . $fileName;
+            // // Menyimpan gambar ke penyimpanan yang ditentukan
+            // // $path = $image->store('images', $newName, 'public');
+            // $image->move('images/prestasi', $fileName);
+            // $path = 'images/prestasi/' . $fileName;
             $Lomba->update([
                 'nama_kegiatan' => $request->nama,
                 'penyelenggara' => $request->penyelenggara,
                 'waktu_pelaksanaan' => $request->tanggal,
                 'tingkat_pengakuan' => $request->pengakuan,
                 'capaian_prestasi' => $request->capaian,
-                'foto_kegiatan' => $path,
+                // 'foto_kegiatan' => $path,
                 'keterangan' => $request->keterangan,
             ]);
 

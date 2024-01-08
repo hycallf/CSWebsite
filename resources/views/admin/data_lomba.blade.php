@@ -200,9 +200,9 @@
                             </div>
 
                             <div class="form-group" id="mahasiswas-container">
-                                <label for="mahasiswas">Mahasiswa yang berpartisipasi :</label>
-                                <div id="mahasiswas">
-                                    <!-- Initial select field for Mahasiswas -->
+                                <label for="mahasiswas">Mahasiswa yang berkontribusi :</label>
+                                <div id="mahasiswa-update">
+
                                     <select class="form-control mb-2" name="mahasiswas[]" required>
                                         <option value="">Select Mahasiswa</option>
                                         @foreach ($mahasiswas as $mahasiswa)
@@ -211,15 +211,15 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="button" class="btn btn-success" onclick="addMahasiswaField()">Add
+                                <button type="button" class="btn btn-success" onclick="addMahasiswaFieldUpdate()">Add
                                     Mahasiswa</button>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Foto Kegiatan</label>
                                 <input type="file" class="form-control" name="foto"
                                     value="{{ $mk->foto_kegiatan }}" />
-                            </div>
+                            </div> --}}
 
 
                         </div>
@@ -322,6 +322,10 @@
                     select.appendChild(option);
                 }
             @endforeach
+
+
+
+
 
             // Append the onchange event to the select element
             select.onchange = function() {
