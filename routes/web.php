@@ -16,10 +16,10 @@ use App\Http\Controllers\MbkmController;
 
 
 Route::get('/', function () {
-    return view('/home');
+    return view('/guest/home');
 });
 
-Route::get('/dashboard', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
 
 // CRUD MAHASISWA
 Route::resource('mahasiswa', MahasiswaController::class);
@@ -46,7 +46,18 @@ Route::resource('publikasi', PublikasiController::class);
 Route::resource('lomba', LombaController::class);
 Route::resource('mbkm', MbkmController::class);
 
-Route::resource('mbkm', MbkmController::class);
+Route::get('/intern', function () {
+    return view('guest/intern');
+});
+Route::get('/prestasi', function () {
+    return view('guest/prestasi');
+});
+Route::get('/project', function () {
+    return view('guest/project');
+});
+Route::get('/publikasi', function () {
+    return view('guest/publikasi');
+});
 
 
 // Route::get('/fetch-data', [PublikasiController::class, 'fetchData']);
