@@ -54,6 +54,31 @@ You can check our project prototype <a href="https://www.figma.com/file/oC2H77lY
 ## Documentation
 You can check full documentation <a href="https://github.com/YayaIniee/CSWebsite/tree/ca179eb29971452a986916d36f2e8631616c37e4/Docs">here</a>
 
+## How to use
+Move to work directory then clone
+```bash
+git clone https://github.com/YayaIniee/CSWebsite.git
+```
+Install composer to vendor file, etc.
+```bash
+composer install
+npm install
+```
+Duplicate file .env
+```bash
+cp .env.example .env
+```
+Generate an Application Key
+```bash
+php artisan key:generate
+```
+Configure Your Database: Open the .env file and configure your database settings (e.g., DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD) to match your local database setup.
+
+Migrate the Database: 
+```bash
+php artisan migrate
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
