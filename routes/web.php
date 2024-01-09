@@ -55,9 +55,9 @@ Route::get('/prestasi', function () {
 Route::get('/project', function () {
     return view('guest/project');
 });
-Route::get('/publikasi', function () {
-    return view('guest/publikasi');
-});
+// Route::get('/publikasi', function () {
+//     return view('guest/publikasi');
+// });
 
 
 // Route::get('/fetch-data', [PublikasiController::class, 'fetchData']);
